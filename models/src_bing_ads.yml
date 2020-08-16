@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: bing_ads
+    schema: "{{ var('bing_ads_schema', 'bing_ads') }}"
+    database: "{{ var('bing_ads_database', target.database) }}"
+    tables:
+      - name: ad_history
