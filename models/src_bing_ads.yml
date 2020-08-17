@@ -6,3 +6,7 @@ sources:
     database: "{{ var('bing_ads_database', target.database) }}"
     tables:
       - name: ad_history
+      - name: campaign_history
+      - name: ad_group_history
+      - name: account_history
+      - name: ad_performance_daily_report
