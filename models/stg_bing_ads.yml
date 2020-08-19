@@ -1,1 +1,110 @@
 version: 2
+
+models:
+  - name: stg_bing_ads__account_history
+    description: ach record in this table represents a version of a Bing account.
+    columns:
+      - name: account_id
+        description: The ID of the account.
+      - name: account_name
+        description: The name of the account.
+      - name: modified_timestamp
+        description: The time each version record was last modified, i.e. when that version was 'created'.
+      - name: account_version_id
+        description: A unique ID for the version of an account.
+        tests:
+          - unique
+          - not_null
+      - name: is_most_recent_version
+        description: A boolean field for whether the version is the most up-to-date version of the account.
+  - name: stg_bing_ads__ad_group_history
+    description: Each record in this table represents a version of a Bing ad group.
+    columns:
+      - name: ad_group_id
+        description: The ID of the ad group.
+      - name: campaign_id
+        description: The ID of the corresponding campaign.
+      - name: ad_group_name
+        description: The name of the ad group.
+      - name: modified_timestamp
+        description: The time each version record was last modified, i.e. when that version was 'created'. 
+      - name: ad_group_version_id
+        description: A unique ID for the version of an ad group.
+        tests:
+          - unique
+          - not_null
+      - name: is_most_recent_version
+        description: A boolean field for whether the version is the most up-to-date version of the ad group.
+  - name: stg_bing_ads__ad_history
+    description: Each record in this table represents a version of a Bing ad.
+    columns:
+      - name: ad_id
+        description: The ID of the ad.
+      - name: ad_group_id
+        description: The ID of the corresponding ad group.
+      - name: final_url
+        description: The full URL that the ad links to.
+      - name: modified_timestamp
+        description: The time each version record was last modified, i.e. when that version was 'created'. 
+      - name: ad_version_id
+        description: A unique ID for the version of an ad.
+        tests:
+          - unique
+          - not_null
+      - name: is_most_recent_version
+        description: A boolean field for whether the version is the most up-to-date version of the ad.
+      - name: base_url
+        description: The base URL of the ad, extracted from the `final_url`.
+      - name: url_host
+        description: The URL host of the ad, extracted from the `final_url`.
+      - name: url_path
+        description: The URL path of the ad, extracted from the `final_url`.
+      - name: utm_source
+        description: The utm_source parameter of the ad, extracted from the `final_url`.
+      - name: utm_medium
+        description: The utm_medium parameter of the ad, extracted from the `final_url`.
+      - name: utm_campaign
+        description: The utm_campaign parameter of the ad, extracted from the `final_url`.
+      - name: utm_content
+        description: The utm_content parameter of the ad, extracted from the `final_url`.
+      - name: utm_term
+        description: The utm_term parameter of the ad, extracted from the `final_url`.
+  - name: stg_bing_ads__ad_performance_daily_report
+    description: Each record in this table represents the daily performance of a Bing ad.
+    columns:
+      - name: date_day
+        description: The date of the ad performance.
+      - name: account_id
+        description: The ID of the corresponding account.
+      - name: campaign_id
+        description: The ID of the corresponding campaign.
+      - name: ad_group_id
+        description: The ID of the corresponding ad group.
+      - name: ad_id
+        description: The ID of the corresponding ad.
+      - name: currency_code
+        description: The currency that spend and other metrics are reported in.
+      - name: clicks
+        description: The number of clicks that occurred for that ad on the date of the record.
+      - name: impressions
+        description: The number of impressions that occurred for that ad on the date of the record.
+      - name: spend
+        description: The amount of advertising spend that occurred for that ad on the date of the record.
+  - name: stg_bing_ads__campaign_history
+    description: Each record in this table represents a version of a Bing campaign.
+    columns:
+      - name: campaign_id
+        description: The ID of the campaign.
+      - name: account_id
+        description: The ID of the corresponding account.
+      - name: campaign_name
+        description: The name of the campaign.
+      - name: modified_timestamp
+        description: The time each version record was last modified, i.e. when that version was 'created'.
+      - name: campaign_version_id
+        description: A unique ID for the version of an campaign.
+        tests:
+          - unique
+          - not_null
+      - name: is_most_recent_version
+        description: A boolean field for whether the version is the most up-to-date version of the campaign.

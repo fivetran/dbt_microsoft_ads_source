@@ -17,14 +17,7 @@ with base as (
         spend
     from base
 
-), surrogate_key as (
-
-    select 
-        *,
-        {{ dbt_utils.surrogate_key(['ad_id','date_day']) }} as daily_ad_id
-    from fields
-
 )
 
 select *
-from surrogate_key
+from fields

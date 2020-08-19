@@ -6,7 +6,65 @@ sources:
     database: "{{ var('bing_ads_database', target.database) }}"
     tables:
       - name: ad_history
+        description: Each record in this table represents a version of a Bing ad.
+        columns:
+          - name: id
+            description: The ID of the ad.
+          - name: ad_group_id
+            description: The ID of the corresponding ad group.
+          - name: final_url
+            description: The full URL that the ad links to.
+          - name: modified_time
+            description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: campaign_history
+        description: Each record in this table represents a version of a Bing campaign.
+        columns:
+          - name: id
+            description: The ID of the campaign.
+          - name: account_id
+            description: The ID of the corresponding account.
+          - name: name
+            description: The name of the campaign.
+          - name: modified_time
+            description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: ad_group_history
+        description: Each record in this table represents a version of a Bing ad group.
+        columns:
+          - name: id
+            description: The ID of the ad group.
+          - name: campaign_id
+            description: The ID of the corresponding campaign.
+          - name: name
+            description: The name of the ad group.
+          - name: modified_time
+            description: The time each version record was last modified, i.e. when that version was 'created'. 
       - name: account_history
+        description: Each record in this table represents a version of a Bing account.
+        columns:
+          - name: id
+            description: The ID of the account.
+          - name: name
+            description: The name of the account.
+          - name: last_modified_time
+            description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: ad_performance_daily_report
+        description: Each record in this table represents the daily performance of a Bing ad.
+        columns:
+          - name: date
+            description: The date of the ad performance.
+          - name: account_id
+            description: The ID of the corresponding account.
+          - name: campaign_id
+            description: The ID of the corresponding campaign.
+          - name: ad_group_id
+            description: The ID of the corresponding ad group.
+          - name: ad_id
+            description: The ID of the corresponding ad.
+          - name: currency_code
+            description: The currency that spend and other metrics are reported in.
+          - name: clicks
+            description: The number of clicks that occurred for that ad on the date of the record.
+          - name: impressions
+            description: The number of impressions that occurred for that ad on the date of the record.
+          - name: spend
+            description: The amount of advertising spend that occurred for that ad on the date of the record.
