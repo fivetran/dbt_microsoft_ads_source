@@ -42,6 +42,7 @@ or open PRs against `master`. Check out
 on the best workflow for contributing to a package.
 
 ## Resources:
+- Provide [feedback](https://www.surveymonkey.com/r/DQ7K7WW) on our existing dbt packages or what you'd like to see next
 - Learn more about Fivetran [here](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
