@@ -19,7 +19,7 @@ This package contains staging models, designed to work simultaneously with our [
 Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
-By default, this package looks for your Microsoft Advertising data in the `bing_ads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Microsoft Advertising data is, add the following configuration to your `dbt_project.yml` file:
+By default, this package looks for your Microsoft Advertising data in the `bingads` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your Microsoft Advertising data is, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -28,8 +28,8 @@ By default, this package looks for your Microsoft Advertising data in the `bing_
 config-version: 2
 
 vars:
-    bing_ads_schema: your_database_name
-    bing_ads_database: your_schema_name 
+    microsoft_ads_schema: your_database_name
+    microsoft_ads_database: your_schema_name
 ```
 
 ## Contributions

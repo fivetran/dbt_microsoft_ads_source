@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ source('bing_ads','ad_history') }}
+    from {{ source('microsoft_ads','ad_history') }}
 
 ), fields as (
 

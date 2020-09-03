@@ -1,12 +1,12 @@
 version: 2
 
 sources:
-  - name: bing_ads
-    schema: "{{ var('bing_ads_schema', 'bingads') }}"
-    database: "{{ var('bing_ads_database', target.database) }}"
+  - name: microsoft_ads
+    schema: "{{ var('microsoft_ads_schema', 'bingads') }}"
+    database: "{{ var('microsoft_ads_database', target.database) }}"
     tables:
       - name: ad_history
-        description: Each record in this table represents a version of a Bing ad.
+        description: Each record in this table represents a version of a Microsoft ad.
         columns:
           - name: id
             description: The ID of the ad.
@@ -17,7 +17,7 @@ sources:
           - name: modified_time
             description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: campaign_history
-        description: Each record in this table represents a version of a Bing campaign.
+        description: Each record in this table represents a version of a Microsoft campaign.
         columns:
           - name: id
             description: The ID of the campaign.
@@ -28,7 +28,7 @@ sources:
           - name: modified_time
             description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: ad_group_history
-        description: Each record in this table represents a version of a Bing ad group.
+        description: Each record in this table represents a version of a Microsoft ad group.
         columns:
           - name: id
             description: The ID of the ad group.
@@ -39,7 +39,7 @@ sources:
           - name: modified_time
             description: The time each version record was last modified, i.e. when that version was 'created'. 
       - name: account_history
-        description: Each record in this table represents a version of a Bing account.
+        description: Each record in this table represents a version of a Microsoft account.
         columns:
           - name: id
             description: The ID of the account.
@@ -48,7 +48,7 @@ sources:
           - name: last_modified_time
             description: The time each version record was last modified, i.e. when that version was 'created'.
       - name: ad_performance_daily_report
-        description: Each record in this table represents the daily performance of a Bing ad.
+        description: Each record in this table represents the daily performance of a Microsoft ad.
         columns:
           - name: date
             description: The date of the ad performance.
