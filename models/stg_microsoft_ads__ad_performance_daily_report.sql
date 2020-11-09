@@ -1,7 +1,7 @@
 with base as (
 
     select *
-    from {{ source('microsoft_ads','ad_performance_daily_report')}}
+    from {{ var('ad_performance_daily_report')}}
 
 ), fields as (
 

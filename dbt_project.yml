@@ -6,3 +6,11 @@ config-version: 2
 models:
   microsoft_ads_source:
     materialized: table
+
+vars: 
+  microsoft_ads_source:
+    account_history: "{{ source('microsoft_ads','account_history') }}"
+    ad_group_history: "{{ source('microsoft_ads','ad_group_history') }}"
+    ad_history: "{{ source('microsoft_ads','ad_history') }}"
+    ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report') }}"
+    campaign_history: "{{ source('microsoft_ads','campaign_history') }}"
