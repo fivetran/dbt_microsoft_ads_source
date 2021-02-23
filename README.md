@@ -1,6 +1,6 @@
 # Microsoft Advertising (Source)
 
-This package models Microsoft Advertising data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-advertising). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1xNeRCtU5dNVy01kTjE-ydX_BLoRDgKZOHGci1vUKDFg/edit).
+This package models Microsoft Advertising data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-advertising). It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/microsoft-advertising#schemainformation).
 
 This package enriches your Fivetran data by doing the following:
 
@@ -28,8 +28,8 @@ By default, this package looks for your Microsoft Advertising data in the `binga
 config-version: 2
 
 vars:
-    microsoft_ads_schema: your_database_name
-    microsoft_ads_database: your_schema_name
+    microsoft_ads_schema: your_schema_name
+    microsoft_ads_database: your_database_name
 ```
 
 ## Contributions
