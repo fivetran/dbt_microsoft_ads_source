@@ -10,7 +10,7 @@ This package enriches your Fivetran data by doing the following:
 
 ## Models
 
-This package contains staging models, designed to work simultaneously with our [Microsoft Advertising modeling package](https://github.com/fivetran/dbt_microsoft_ads). The staging models name columns consistently across all packages:
+This package contains staging models, designed to work simultaneously with our [Microsoft Advertising modeling package](https://github.com/fivetran/dbt_microsoft_ads) and our [multi-platform Ad Reporting package](https://github.com/fivetran/dbt_ad_reporting). The staging models name columns consistently across all packages:
 * Boolean fields are prefixed with `is_` or `has_`
 * Timestamps are appended with `_at`
 * ID primary keys are prefixed with the name of the table. For example, the campaign table's ID column is renamed `campaign_id`.
@@ -30,6 +30,18 @@ config-version: 2
 vars:
     microsoft_ads_schema: your_schema_name
     microsoft_ads_database: your_database_name
+```
+
+### Changing the Build Schema
+By default this package will build the Microsoft Ads staging models within a schema titled (<target_schema> + `_stg_microsoft_ads`) in your target database. If this is not where you would like your Microsoft Ads staging data to be written to, add the following configuration to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+
+...
+models:
+    microsoft_ads_source:
+      +schema: my_new_schema_name # leave blank for just the target_schema
 ```
 
 ## Contributions
