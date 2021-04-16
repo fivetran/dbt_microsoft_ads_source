@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: microsoft_ads
     schema: "{{ var('microsoft_ads_schema', 'bingads') }}"
-    database: "{{ var('microsoft_ads_database', target.database) }}"
+    database: "{% if target.type != 'spark'%}{{ var('microsoft_ads_database', target.database) }}{% endif %}"
     tables:
       - name: ad_history
         description: Each record in this table represents a version of a Microsoft ad.
