@@ -2,5 +2,6 @@ packages:
   - package: fishtown-analytics/dbt_utils
     version: [">0.6.0", "<0.7.0"]
 
-  - git: "https://github.com/fishtown-analytics/spark-utils"
+  - package: fishtown-analytics/spark_utils
+    version: [">0.2.0", "<0.3.0"] 
     warn-unpinned: false
