@@ -14,3 +14,7 @@ vars:
     ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report') }}"
     campaign_history: "{{ source('microsoft_ads','campaign_history') }}"
   dbt_utils_dispatch_list: ['spark_utils']
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
