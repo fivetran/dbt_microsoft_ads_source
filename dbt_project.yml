@@ -1,20 +1,17 @@
-
 name: 'microsoft_ads_source'
-version: '0.2.2'
+version: '0.3.0'
 config-version: 2
-
-require-dbt-version: [">=0.18.0", "<0.20.0"]
-
+require-dbt-version: [">=0.20.0"]
 models:
   microsoft_ads_source:
     +schema: stg_microsoft_ads
     +materialized: table
-
-vars: 
+vars:
   microsoft_ads_source:
     account_history: "{{ source('microsoft_ads','account_history') }}"
     ad_group_history: "{{ source('microsoft_ads','ad_group_history') }}"
     ad_history: "{{ source('microsoft_ads','ad_history') }}"
-    ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report') }}"
+    ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report')\
+      \ }}"
     campaign_history: "{{ source('microsoft_ads','campaign_history') }}"
   dbt_utils_dispatch_list: ['spark_utils']
