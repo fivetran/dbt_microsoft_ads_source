@@ -3,6 +3,18 @@ with base as (
     select *
     from {{ var('ad_history') }}
 
+{% if var('microsoft_auto_tagging_enabled', false) %}
+), campaigns as (
+    
+    select * 
+    from {{ ref('stg_microsoft_ads__campaign_history') }}
+
+), ad_groups as (
+    
+    select *
+    from {{ ref('stg_microsoft_ads__ad_group_history') }}
+{% endif %}
+
 ), fields as (
 
     select 
@@ -15,16 +27,39 @@ with base as (
 ), url_fields as (
 
     select 
-        *,
-        {{ dbt_utils.split_part('final_url', "'?'", 1) }} as base_url,
-        {{ dbt_utils.get_url_host('final_url') }} as url_host,
-        '/' || {{ dbt_utils.get_url_path('final_url') }} as url_path,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_source') }} as utm_source,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_medium') }} as utm_medium,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_campaign') }} as utm_campaign,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_content') }} as utm_content,
-        {{ dbt_utils.get_url_parameter('final_url', 'utm_term') }} as utm_term
+        fields.*,
+        {{ dbt_utils.split_part('fields.final_url', "'?'", 1) }} as base_url,
+        {{ dbt_utils.get_url_host('fields.final_url') }} as url_host,
+        '/' || {{ dbt_utils.get_url_path('fields.final_url') }} as url_path,
+
+        {% if var('microsoft_auto_tagging_enabled', false) %}
+
+        coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_source') }} , 'bing') as utm_source,
+        coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_medium') }}, 'cpc') as utm_medium,
+        coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_campaign') }}, campaigns.campaign_name) as utm_campaign,
+        coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_content') }}, ad_groups.ad_group_name) as utm_content,
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_term') }} as utm_term
+
+        {% else %}
+
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_source') }} as utm_source,
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_medium') }} as utm_medium,
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_campaign') }} as utm_campaign,
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_content') }} as utm_content,
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_term') }} as utm_term
+
+        {% endif %}
     from fields
+
+    {% if var('microsoft_auto_tagging_enabled', false) %}
+    left join ad_groups
+        on ad_groups.ad_group_id = fields.ad_group_id
+
+    left join campaigns
+    on campaigns.campaign_id = ad_groups.campaign_id
+        and campaigns.is_most_recent_version
+
+    {% endif %}
 
 ), surrogate_key as (
 
