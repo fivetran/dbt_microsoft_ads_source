@@ -40,6 +40,12 @@ vars:
     microsoft_ads_schema: your_schema_name
     microsoft_ads_database: your_database_name
 ```
+### UTM Auto Tagging Feature
+This package assumes you are manually adding UTM tags to the `final_url` field within the `ad_history` table. If you are leveraging the auto-tag feature within Microsoft Ads then you will want to enable the `microsoft_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_microsoft_ads__ad_history` model.
+```yml
+vars:
+    microsoft_auto_tagging_enabled: true # False by default
+```
 
 ### Changing the Build Schema
 By default this package will build the Microsoft Ads staging models within a schema titled (<target_schema> + `_stg_microsoft_ads`) in your target database. If this is not where you would like your Microsoft Ads staging data to be written to, add the following configuration to your `dbt_project.yml` file:
