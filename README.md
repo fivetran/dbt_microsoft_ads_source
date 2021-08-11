@@ -44,7 +44,8 @@ vars:
 This package assumes you are manually adding UTM tags to the `final_url` field within the `ad_history` table. If you are leveraging the auto-tag feature within Microsoft Ads then you will want to enable the `microsoft_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_microsoft_ads__ad_history` model.
 ```yml
 vars:
-    microsoft_auto_tagging_enabled: true # False by default
+    microsoft_ads_source:
+      microsoft_auto_tagging_enabled: true # False by default
 ```
 
 ### Changing the Build Schema

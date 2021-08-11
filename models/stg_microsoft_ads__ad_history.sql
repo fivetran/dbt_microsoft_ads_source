@@ -38,7 +38,6 @@ with base as (
         coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_medium') }}, 'cpc') as utm_medium,
         coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_campaign') }}, campaigns.campaign_name) as utm_campaign,
         coalesce( {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_content') }}, ad_groups.ad_group_name) as utm_content,
-        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_term') }} as utm_term
 
         {% else %}
 
@@ -46,9 +45,10 @@ with base as (
         {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_medium') }} as utm_medium,
         {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_campaign') }} as utm_campaign,
         {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_content') }} as utm_content,
-        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_term') }} as utm_term
 
         {% endif %}
+
+        {{ dbt_utils.get_url_parameter('fields.final_url', 'utm_term') }} as utm_term
     from fields
 
     {% if var('microsoft_auto_tagging_enabled', false) %}
@@ -57,7 +57,7 @@ with base as (
 
     left join campaigns
     on campaigns.campaign_id = ad_groups.campaign_id
-        and campaigns.is_most_recent_version
+        and coalesce(campaigns.is_most_recent_version, true)
 
     {% endif %}
 
