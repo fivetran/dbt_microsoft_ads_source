@@ -1,3 +1,7 @@
+# dbt_microsoft_ads_source v0.4.1
+## Bug Fixes
+- Adjusts the `stg_microsoft_ads__ad_history` model in order to avoid fanout, caused by joining with the `ad_group_history` table. Now, the join is limited to the most recent record of ad groups in `ad_group_history` ([#13](https://github.com/fivetran/dbt_microsoft_ads_source/issues/13))
+
 # dbt_microsoft_ads_source v0.4.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
