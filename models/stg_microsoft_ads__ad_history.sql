@@ -54,6 +54,7 @@ with base as (
     {% if var('microsoft_auto_tagging_enabled', false) %}
     left join ad_groups
         on ad_groups.ad_group_id = fields.ad_group_id
+        and coalesce(ad_groups.is_most_recent_version, true)
 
     left join campaigns
     on campaigns.campaign_id = ad_groups.campaign_id
