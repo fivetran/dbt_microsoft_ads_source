@@ -1,3 +1,20 @@
+# dbt_microsoft_ads_source v0.5.0
+
+## 🚨 Breaking Changes 🚨
+- We have migrated URL and UTM logic into the "modeling" package in order to adhere to our definitions of "source" and "modeling" packages; specifically, "source" packages are meant to only do light renaming and subsetting columns from the source while "modeling" packages perform more complex transformations, including string extraction for new fields. 
+- Changes include:
+  - Removed `url_fields` CTE from `stg_microsoft_ads__ad_history` model
+  - Removed `microsoft_auto_tagging_enabled` conditional statements from `stg_microsoft_ads__ad_history` model
+- Please reference [dbt_microsoft_ads](https://github.com/fivetran/dbt_microsoft_ads)'s models if you are using any of the below fields from the `stg_microsoft_ads__ad_history` in this package:
+  - `base_url`
+  - `url_host`
+  - `url_path`
+  - `utm_source`
+  - `utm_medium`
+  - `utm_campaign`
+  - `utm_content`
+  - `utm_term`
+- Additionally, if you have declared the `microsoft_auto_tagging_enabled` variable for `microsoft_ads_source` in your `dbt_project.yml`, you may declare the variable globally or for `microsoft_ads`.  
 # dbt_microsoft_ads_source v0.4.1
 ## Bug Fixes
 - Adjusts the `stg_microsoft_ads__ad_history` model in order to avoid fanout, caused by joining with the `ad_group_history` table. Now, the join is limited to the most recent record of ad groups in `ad_group_history` ([#13](https://github.com/fivetran/dbt_microsoft_ads_source/issues/13))
