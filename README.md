@@ -24,7 +24,7 @@ Include in your `packages.yml`
 ```yaml
 packages:
   - package: fivetran/microsoft_ads_source
-    version: [">=0.4.0", "<0.5.0"]
+    version: [">=0.5.0", "<0.6.0"]
 ```
 
 ## Configuration
@@ -39,13 +39,6 @@ config-version: 2
 vars:
     microsoft_ads_schema: your_schema_name
     microsoft_ads_database: your_database_name
-```
-### UTM Auto Tagging Feature
-This package assumes you are manually adding UTM tags to the `final_url` field within the `ad_history` table. If you are leveraging the auto-tag feature within Microsoft Ads then you will want to enable the `microsoft_auto_tagging_enabled` variable to correctly populate the UTM fields within the `stg_microsoft_ads__ad_history` model.
-```yml
-vars:
-    microsoft_ads_source:
-      microsoft_auto_tagging_enabled: true # False by default
 ```
 
 ### Changing the Build Schema
