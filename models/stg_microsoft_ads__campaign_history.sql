@@ -1,32 +1,36 @@
+
 with base as (
 
-    select *
-    from {{ var('campaign_history') }}
+    select * 
+    from {{ ref('stg_microsoft_ads__campaign_history_tmp') }}
 
-), fields as (
+),
 
-    select 
-        id as campaign_id,
-        account_id,
-        name as campaign_name,
-        modified_time as modified_timestamp
-    from base
-
-), surrogate_key as (
-
-    select 
-        *,
-        {{ dbt_utils.surrogate_key(['campaign_id','modified_timestamp']) }} as campaign_version_id
-    from fields
-
-), most_recent_record as (
+fields as (
 
     select
-        *,
-        row_number() over (partition by campaign_id order by modified_timestamp desc) = 1 as is_most_recent_version
-    from surrogate_key
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__campaign_history_tmp')),
+                staging_columns=get_campaign_history_columns()
+            )
+        }}
+        
+    from base
+),
 
+final as (
+    
+    select 
+        id as campaign_id,
+        name as campaign_name,
+        account_id,
+        modified_time as modified_at,
+        type as campaign_type,
+        time_zone,
+        status,
+        row_number() over (partition by id order by modified_time desc) = 1 as is_most_recent_record
+    from fields
 )
 
-select *
-from most_recent_record
+select * from final

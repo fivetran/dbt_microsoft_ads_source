@@ -1,3 +1,39 @@
+# dbt_microsoft_ads_source v0.6.0
+
+## 🚨 Breaking Changes 🚨
+PR [] makes the below updates that may affect your workflow:
+- `modified_timestamp` columns have been renamed to `modified_at` and `is_most_recent_version` has been renamed to `is_most_recent_record` to reflect more recent package coding standards for the below models:
+  - `stg_microsoft_ads__account_history`
+  - `stg_microsoft_ads__ad_group_history`
+  - `stg_microsoft_ads__ad_history`
+  - `stg_microsoft_ads__ad_performance_daily_report`
+  - `stg_microsoft_ads__campaign_history`
+- Deprecating `*_version_id` fields in `*_history` models.
+
+## 🎉 Feature Enhancements 🎉
+We have added the below feature enhancements to this package in (PR #)[]:
+- Add `get_*_columns` macros for previously included models and newly added models.
+- Updated staging model standards on old models to conform with recent package development standards. Updates were made to the below models:
+  - `stg_microsoft_ads__account_history`
+  - `stg_microsoft_ads__ad_group_history`
+  - `stg_microsoft_ads__ad_history`
+  - `stg_microsoft_ads__ad_performance_daily_report`
+  - `stg_microsoft_ads__campaign_history`
+- New history and daily performance staging models including:
+  - `stg_microsoft_ads__account_daily_report` 
+  - `stg_microsoft_ads__campaign_daily_report` 
+  - `stg_microsoft_ads__ad_group_daily_report` 
+  - `stg_microsoft_ads__search_daily_report`
+  - `stg_microsoft_ads__keyword_daily_report`
+  - `stg_microsoft_ads__keyword_history`
+- `README` updates for easier navigation and use of the package.
+- Addition of identifier variables for each of the source tables to allow for further flexibility in source table direction within the dbt project.
+- More robust testing for better data integrity including: 
+  - Freshness tests
+  - Model grain tests
+- Passthrough metric functionality for more flexibility in reporting.
+- Additional documentation for new models added.
+
 # dbt_microsoft_ads_source v0.5.0
 
 ## 🚨 Breaking Changes 🚨
