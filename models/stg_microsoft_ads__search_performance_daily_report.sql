@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_microsoft_ads__search_query_performance_daily_report_tmp') }}
+    from {{ ref('stg_microsoft_ads__search_performance_daily_report_tmp') }}
 
 ),
 
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__search_query_performance_daily_report_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__search_performance_daily_report_tmp')),
                 staging_columns=get_search_query_performance_daily_report_columns()
             )
         }}

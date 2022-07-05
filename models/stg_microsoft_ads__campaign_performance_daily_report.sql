@@ -25,6 +25,7 @@ final as (
         account_id,
         campaign_id,
         currency_code,
+        device_os,
         device_type,
         network,
         clicks,

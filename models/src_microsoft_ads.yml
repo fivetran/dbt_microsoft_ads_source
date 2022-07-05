@@ -6,13 +6,24 @@ sources:
     database: "{% if target.type != 'spark'%}{{ var('microsoft_ads_database', target.database) }}{% endif %}"
     tables:
       - name: account_history
+        identifier: "{{ var('microsoft_ads_account_history_identifier', 'account_history') }}"
       - name: account_performance_daily_report
+        identifier: "{{ var('microsoft_ads_account_performance_daily_report_identifier', 'account_performance_daily_report') }}"
       - name: ad_group_history
+        identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
       - name: ad_group_performance_daily_report
+        identifier: "{{ var('microsoft_ads_ad_group_performance_daily_report_identifier', 'ad_group_performance_daily_report') }}"
       - name: ad_history
+        identifier: "{{ var('microsoft_ads_ad_history_identifier', 'ad_history') }}"
       - name: ad_performance_daily_report
+        identifier: "{{ var('microsoft_ads_ad_performance_daily_report_identifier', 'ad_performance_daily_report') }}"
       - name: campaign_history
+        identifier: "{{ var('microsoft_ads_campaign_history_identifier', 'campaign_history') }}"
       - name: campaign_performance_daily_report
+        identifier: "{{ var('microsoft_ads_campaign_performance_daily_report_identifier', 'campaign_performance_daily_report') }}"
       - name: keyword_history
+        identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
       - name: keyword_performance_daily_report
+        identifier: "{{ var('microsoft_ads_keyword_performance_daily_report_identifier', 'keyword_performance_daily_report') }}"
       - name: search_query_performance_daily_report
+        identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
