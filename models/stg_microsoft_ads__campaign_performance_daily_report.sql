@@ -31,6 +31,10 @@ final as (
         clicks,
         impressions,
         spend
+
+        {% for metric in var('microsoft_ads__campaign_report_passthrough_metrics', []) %}
+        , {{ metric }}
+        {% endfor %}
     from fields
 )
 
