@@ -32,6 +32,11 @@ final as (
         device_os,
         device_type,
         network,
+        language,
+        ad_distribution,
+        bid_match_type,
+        delivered_match_type,
+        top_vs_other,
         clicks,
         impressions,
         spend

@@ -1,0 +1,313 @@
+version: 2
+
+models:
+  - name: account_history
+    identifier: "{{ var('microsoft_ads_account_history_identifier', 'account_history') }}"
+    description: Each record in this table represents a version of one or more Microsoft accounts.
+    columns:
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: account_name
+        description: '{{ doc("account_name") }}'
+      - name: modified_at
+        description: '{{ doc("modified_at") }}'
+      - name: time_zone
+        description: '{{ doc("time_zone") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+    
+  - name: account_performance_daily_report
+    identifier: "{{ var('microsoft_ads_account_performance_daily_report_identifier', 'account_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+
+  - name: ad_group_history
+    identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
+    description: Each record in this table represents a version of one or more Microsoft ad groups.
+    columns:
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: ad_group_name
+        description: '{{ doc("ad_group_name") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: modified_at
+        description: '{{ doc("modified_at") }}'
+      - name: start_date
+        description: '{{ doc("start_date") }}'
+      - name: end_date
+        description: '{{ doc("end_date") }}'
+      - name: status
+        description: '{{ doc("ad_group_status") }}'
+
+  - name: ad_group_performance_daily_report
+    identifier: "{{ var('microsoft_ads_ad_group_performance_daily_report_identifier', 'ad_group_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account, campaign, ad group and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+
+  - name: ad_history
+    identifier: "{{ var('microsoft_ads_ad_history_identifier', 'ad_history') }}"
+    description: Each record in this table represents a version of one or more Microsoft ads.
+    columns:
+      - name: ad_id
+        description: '{{ doc("ad_id") }}'
+      - name: ad_name
+        description: '{{ doc("ad_name") }}'
+      - name: final_url 
+        description: '{{ doc("final_url") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: modified_at 
+        description: '{{ doc("modified_at") }}'
+      - name: status
+        description: '{{ doc("ad_status") }}'
+      - name: type
+        description: '{{ doc("ad_type") }}'
+
+  - name: ad_performance_daily_report
+    identifier: "{{ var('microsoft_ads_ad_performance_daily_report_identifier', 'ad_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account, campaign, ad group, ad and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: ad_id
+        description: '{{ doc("ad_id") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+
+  - name: campaign_history
+    identifier: "{{ var('microsoft_ads_campaign_history_identifier', 'campaign_history') }}"
+    description: Each record in this table represents a version of one or more Microsoft campaigns.
+    columns:
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: campaign_name
+        description: '{{ doc("campaign_name") }}'
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: modified_at
+        description: '{{ doc("modified_at") }}'
+      - name: type
+        description: '{{ doc("campaign_type") }}'
+      - name: time_zone
+        description: '{{ doc("time_zone") }}'
+      - name: status
+        description: '{{ doc("campaign_status") }}'
+
+  - name: campaign_performance_daily_report
+    identifier: "{{ var('microsoft_ads_campaign_performance_daily_report_identifier', 'campaign_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account, campaign and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+
+  - name: keyword_history
+    identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
+    description: Each record in this table represents a version of one or more Microsoft keywords.
+    columns:
+      - name: keyword_id
+        description: '{{ doc("keyword_id") }}'
+      - name: keyword_name
+        description: '{{ doc("keyword_name") }}'
+      - name: modified_at
+        description: '{{ doc("modified_at") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: match_type
+        description: '{{ doc("match_type") }}'
+      - name: status
+        description: '{{ doc("keyword_status") }}'
+
+  - name: keyword_performance_daily_report
+    identifier: "{{ var('microsoft_ads_keyword_performance_daily_report_identifier', 'keyword_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: ad_id
+        description: '{{ doc("ad_id") }}'
+      - name: keyword_id
+        description: '{{ doc("keyword_id") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+
+  - name: search_query_performance_daily_report
+    identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
+    columns:
+      - name: date_day
+        description: '{{ doc("date_day") }}' 
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: ad_id
+        description: '{{ doc("ad_id") }}'
+      - name: keyword_id
+        description: '{{ doc("keyword_id") }}'
+      - name: search_query
+        description: '{{ doc("top_vs_other") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'

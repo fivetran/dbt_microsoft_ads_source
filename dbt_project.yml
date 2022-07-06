@@ -4,17 +4,18 @@ config-version: 2
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 
 vars:
-  account_history: "{{ source('microsoft_ads','account_history') }}"
-  account_performance_daily_report: "{{ source('microsoft_ads', 'account_performance_daily_report') }}"
-  ad_group_history: "{{ source('microsoft_ads','ad_group_history') }}"
-  ad_group_performance_daily_report: "{{ source('microsoft_ads', 'ad_group_performance_daily_report') }}"
-  ad_history: "{{ source('microsoft_ads','ad_history') }}"
-  ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report') }}"
-  campaign_history: "{{ source('microsoft_ads','campaign_history') }}"
-  campaign_performance_daily_report: "{{ source('microsoft_ads', 'campaign_performance_daily_report') }}"
-  keyword_history: "{{ source('microsoft_ads','keyword_history') }}"
-  keyword_performance_daily_report: "{{ source('microsoft_ads', 'keyword_performance_daily_report') }}"
-  search_performance_daily_report: "{{ source('microsoft_ads', 'search_query_performance_daily_report') }}"
+  microsoft_ads_source:
+    account_history: "{{ source('microsoft_ads','account_history') }}"
+    account_performance_daily_report: "{{ source('microsoft_ads', 'account_performance_daily_report') }}"
+    ad_group_history: "{{ source('microsoft_ads','ad_group_history') }}"
+    ad_group_performance_daily_report: "{{ source('microsoft_ads', 'ad_group_performance_daily_report') }}"
+    ad_history: "{{ source('microsoft_ads','ad_history') }}"
+    ad_performance_daily_report: "{{ source('microsoft_ads','ad_performance_daily_report') }}"
+    campaign_history: "{{ source('microsoft_ads','campaign_history') }}"
+    campaign_performance_daily_report: "{{ source('microsoft_ads', 'campaign_performance_daily_report') }}"
+    keyword_history: "{{ source('microsoft_ads','keyword_history') }}"
+    keyword_performance_daily_report: "{{ source('microsoft_ads', 'keyword_performance_daily_report') }}"
+    search_performance_daily_report: "{{ source('microsoft_ads', 'search_query_performance_daily_report') }}"
 
   microsoft_ads__account_report_passthrough_metrics: []
   microsoft_ads__campaign_report_passthrough_columns: []

@@ -26,7 +26,7 @@ final as (
         name as campaign_name,
         account_id,
         modified_time as modified_at,
-        type as campaign_type,
+        type,
         time_zone,
         status,
         row_number() over (partition by id order by modified_time desc) = 1 as is_most_recent_record

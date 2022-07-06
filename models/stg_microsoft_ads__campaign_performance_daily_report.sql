@@ -22,12 +22,17 @@ fields as (
 final as (
     
     select 
+        date as date_day,
         account_id,
         campaign_id,
         currency_code,
         device_os,
         device_type,
         network,
+        ad_distribution,
+        bid_match_type,
+        delivered_match_type,
+        top_vs_other,
         clicks,
         impressions,
         spend

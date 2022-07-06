@@ -28,9 +28,14 @@ final as (
         device_type,
         network,
         currency_code, 
+        ad_distribution,
+        bid_match_type,
+        delivered_match_type,
+        top_vs_other,
         clicks, 
         impressions,
         spend
+        
         {% for metric in var('microsoft_ads__account_report_passthrough_metrics', []) %}
         , {{ metric }}
         {% endfor %}
