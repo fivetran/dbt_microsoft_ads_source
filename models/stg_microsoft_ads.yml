@@ -1,9 +1,14 @@
 version: 2
 
 models:
-  - name: account_history
+  - name: stg_microsoft_ads__account_history
     identifier: "{{ var('microsoft_ads_account_history_identifier', 'account_history') }}"
     description: Each record in this table represents a version of one or more Microsoft accounts.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - account_id
+            - modified_at
     columns:
       - name: account_id
         description: '{{ doc("account_id") }}'
@@ -16,9 +21,22 @@ models:
       - name: currency_code
         description: '{{ doc("currency_code") }}'
     
-  - name: account_performance_daily_report
+  - name: stg_microsoft_ads__account_performance_daily_report
     identifier: "{{ var('microsoft_ads_account_performance_daily_report_identifier', 'account_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - device_os
+            - device_type
+            - network
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -47,7 +65,7 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: ad_group_history
+  - name: stg_microsoft_ads__ad_group_history
     identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
     description: Each record in this table represents a version of one or more Microsoft ad groups.
     columns:
@@ -66,9 +84,25 @@ models:
       - name: status
         description: '{{ doc("ad_group_status") }}'
 
-  - name: ad_group_performance_daily_report
+  - name: stg_microsoft_ads__ad_group_performance_daily_report
     identifier: "{{ var('microsoft_ads_ad_group_performance_daily_report_identifier', 'ad_group_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - campaign_id
+            - ad_group_id
+            - device_os
+            - device_type
+            - network
+            - language
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -103,7 +137,7 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: ad_history
+  - name: stg_microsoft_ads__ad_history
     identifier: "{{ var('microsoft_ads_ad_history_identifier', 'ad_history') }}"
     description: Each record in this table represents a version of one or more Microsoft ads.
     columns:
@@ -122,9 +156,26 @@ models:
       - name: type
         description: '{{ doc("ad_type") }}'
 
-  - name: ad_performance_daily_report
+  - name: stg_microsoft_ads__ad_performance_daily_report
     identifier: "{{ var('microsoft_ads_ad_performance_daily_report_identifier', 'ad_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - campaign_id
+            - ad_group_id
+            - ad_id
+            - device_os
+            - device_type
+            - network
+            - language
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -161,7 +212,7 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: campaign_history
+  - name: stg_microsoft_ads__campaign_history
     identifier: "{{ var('microsoft_ads_campaign_history_identifier', 'campaign_history') }}"
     description: Each record in this table represents a version of one or more Microsoft campaigns.
     columns:
@@ -180,9 +231,23 @@ models:
       - name: status
         description: '{{ doc("campaign_status") }}'
 
-  - name: campaign_performance_daily_report
+  - name: stg_microsoft_ads__campaign_performance_daily_report
     identifier: "{{ var('microsoft_ads_campaign_performance_daily_report_identifier', 'campaign_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - campaign_id
+            - device_os
+            - device_type
+            - network
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -213,7 +278,7 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: keyword_history
+  - name: stg_microsoft_ads__keyword_history
     identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
     description: Each record in this table represents a version of one or more Microsoft keywords.
     columns:
@@ -230,9 +295,27 @@ models:
       - name: status
         description: '{{ doc("keyword_status") }}'
 
-  - name: keyword_performance_daily_report
+  - name: stg_microsoft_ads__keyword_performance_daily_report
     identifier: "{{ var('microsoft_ads_keyword_performance_daily_report_identifier', 'keyword_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - campaign_id
+            - ad_group_id
+            - ad_id
+            - keyword_id
+            - device_os
+            - device_type
+            - network
+            - language
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -271,9 +354,28 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: search_query_performance_daily_report
+  - name: stg_microsoft_ads__search_query_performance_daily_report
     identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - date_day
+            - account_id
+            - campaign_id
+            - ad_group_id
+            - ad_id
+            - keyword_id
+            - search_query
+            - device_os
+            - device_type
+            - network
+            - language
+            - currency_code
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
