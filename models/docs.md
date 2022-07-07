@@ -6,6 +6,10 @@ The ID of the account.
 The name of the account.
 {% enddocs %}
 
+{% docs account_timezone %}
+The time zone associated with this account.
+{% enddocs %}
+
 {% docs ad_distribution %}
 The distribution medium associated with this record.
 {% enddocs %}
@@ -53,6 +57,10 @@ The name of the campaign.
 {% docs campaign_status %}
 The status of this campaign; see the following [documentation](https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaignstatus?view=bingads-13) for more information on values and definitions.
 {% enddocs%}
+
+{% docs campaign_timezone %}
+The time zone associated with this campaign.
+{% enddocs %}
 
 {% docs campaign_type %}
 The campaign type associated with this record; see the following [documentation](https://docs.microsoft.com/en-us/advertising/campaign-management-service/campaigntype?view=bingads-13) for more information on values and definitions.
@@ -135,7 +143,7 @@ The date in which an ad group starts running.
 {% enddocs %}
 
 {% docs time_zone %}
-The time_zone associated with this record.
+The time zone associated with this record.
 {% enddocs %}
 
 {% docs top_vs_other %}
