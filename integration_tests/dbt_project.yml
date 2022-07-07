@@ -25,6 +25,7 @@ seeds:
       campaign_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
       ad_group_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
       ad_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
+      keyword_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
       last_modified_time: "timestamp"
       modified_time: "timestamp"
       spend: "float"
