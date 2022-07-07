@@ -284,7 +284,7 @@ sources:
             description: '{{ doc("spend") }}'
       
       - name: search_query_performance_daily_report
-        identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
+        identifier: "{{ var('microsoft_ads_search_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
         columns:
           - name: date
