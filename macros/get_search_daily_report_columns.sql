@@ -1,11 +1,9 @@
-{% macro get_ad_performance_daily_report_columns() %}
+{% macro get_search_daily_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "account_id", "datatype": dbt_utils.type_int()},
-    {"name": "ad_description", "datatype": dbt_utils.type_string()},
-    {"name": "ad_description_2", "datatype": dbt_utils.type_string()},
-    {"name": "ad_distribution", "datatype": dbt_utils.type_string()},
+    {"name": "account_number", "datatype": dbt_utils.type_string()},
     {"name": "ad_group_id", "datatype": dbt_utils.type_int()},
     {"name": "ad_id", "datatype": dbt_utils.type_int()},
     {"name": "all_conversion_rate", "datatype": dbt_utils.type_string()},
@@ -21,19 +19,20 @@
     {"name": "conversion_rate", "datatype": dbt_utils.type_float()},
     {"name": "conversions", "datatype": dbt_utils.type_int()},
     {"name": "ctr", "datatype": dbt_utils.type_float()},
-    {"name": "currency_code", "datatype": dbt_utils.type_string()},
+    {"name": "customer_id", "datatype": dbt_utils.type_int()},
     {"name": "date", "datatype": "date"},
     {"name": "delivered_match_type", "datatype": dbt_utils.type_string()},
     {"name": "device_os", "datatype": dbt_utils.type_string()},
     {"name": "device_type", "datatype": dbt_utils.type_string()},
     {"name": "impressions", "datatype": dbt_utils.type_int()},
+    {"name": "keyword_id", "datatype": dbt_utils.type_int()},
     {"name": "language", "datatype": dbt_utils.type_string()},
     {"name": "network", "datatype": dbt_utils.type_string()},
     {"name": "return_on_ad_spend", "datatype": dbt_utils.type_float()},
     {"name": "revenue", "datatype": dbt_utils.type_float()},
+    {"name": "search_query", "datatype": dbt_utils.type_string()},
     {"name": "spend", "datatype": dbt_utils.type_float()},
-    {"name": "top_vs_other", "datatype": dbt_utils.type_string()},
-    {"name": "view_through_conversions", "datatype": dbt_utils.type_int()}
+    {"name": "top_vs_other", "datatype": dbt_utils.type_string()}
 ] %}
 
 {{ return(columns) }}

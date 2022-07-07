@@ -1,11 +1,12 @@
-{% macro get_search_query_performance_daily_report_columns() %}
+{% macro get_keyword_daily_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},
     {"name": "account_id", "datatype": dbt_utils.type_int()},
-    {"name": "account_number", "datatype": dbt_utils.type_string()},
+    {"name": "ad_distribution", "datatype": dbt_utils.type_string()},
     {"name": "ad_group_id", "datatype": dbt_utils.type_int()},
     {"name": "ad_id", "datatype": dbt_utils.type_int()},
+    {"name": "ad_relevance", "datatype": dbt_utils.type_int()},
     {"name": "all_conversion_rate", "datatype": dbt_utils.type_string()},
     {"name": "all_conversions", "datatype": dbt_utils.type_int()},
     {"name": "all_return_on_ad_spend", "datatype": dbt_utils.type_float()},
@@ -19,20 +20,29 @@
     {"name": "conversion_rate", "datatype": dbt_utils.type_float()},
     {"name": "conversions", "datatype": dbt_utils.type_int()},
     {"name": "ctr", "datatype": dbt_utils.type_float()},
-    {"name": "customer_id", "datatype": dbt_utils.type_int()},
+    {"name": "currency_code", "datatype": dbt_utils.type_string()},
+    {"name": "current_max_cpc", "datatype": dbt_utils.type_float()},
     {"name": "date", "datatype": "date"},
     {"name": "delivered_match_type", "datatype": dbt_utils.type_string()},
     {"name": "device_os", "datatype": dbt_utils.type_string()},
     {"name": "device_type", "datatype": dbt_utils.type_string()},
+    {"name": "expected_ctr", "datatype": dbt_utils.type_int()},
+    {"name": "historical_ad_relevance", "datatype": dbt_utils.type_int()},
+    {"name": "historical_expected_ctr", "datatype": dbt_utils.type_int()},
+    {"name": "historical_landing_page_experience", "datatype": dbt_utils.type_int()},
+    {"name": "historical_quality_score", "datatype": dbt_utils.type_int()},
     {"name": "impressions", "datatype": dbt_utils.type_int()},
     {"name": "keyword_id", "datatype": dbt_utils.type_int()},
+    {"name": "landing_page_experience", "datatype": dbt_utils.type_int()},
     {"name": "language", "datatype": dbt_utils.type_string()},
     {"name": "network", "datatype": dbt_utils.type_string()},
+    {"name": "quality_impact", "datatype": dbt_utils.type_int()},
+    {"name": "quality_score", "datatype": dbt_utils.type_int()},
     {"name": "return_on_ad_spend", "datatype": dbt_utils.type_float()},
     {"name": "revenue", "datatype": dbt_utils.type_float()},
-    {"name": "search_query", "datatype": dbt_utils.type_string()},
     {"name": "spend", "datatype": dbt_utils.type_float()},
-    {"name": "top_vs_other", "datatype": dbt_utils.type_string()}
+    {"name": "top_vs_other", "datatype": dbt_utils.type_string()},
+    {"name": "view_through_conversions", "datatype": dbt_utils.type_int()}
 ] %}
 
 {{ return(columns) }}

@@ -1,4 +1,4 @@
-{% macro get_account_performance_daily_report_columns() %}
+{% macro get_account_daily_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_synced", "datatype": dbt_utils.type_timestamp()},

@@ -21,8 +21,8 @@ models:
       - name: currency_code
         description: '{{ doc("currency_code") }}'
     
-  - name: stg_microsoft_ads__account_performance_daily_report
-    identifier: "{{ var('microsoft_ads_account_performance_daily_report_identifier', 'account_performance_daily_report') }}"
+  - name: stg_microsoft_ads__account_daily_report
+    identifier: "{{ var('microsoft_ads_account_daily_report_identifier', 'account_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -89,8 +89,8 @@ models:
       - name: status
         description: '{{ doc("ad_group_status") }}'
 
-  - name: stg_microsoft_ads__ad_group_performance_daily_report
-    identifier: "{{ var('microsoft_ads_ad_group_performance_daily_report_identifier', 'ad_group_performance_daily_report') }}"
+  - name: stg_microsoft_ads__ad_group_daily_report
+    identifier: "{{ var('microsoft_ads_ad_group_daily_report_identifier', 'ad_group_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -166,8 +166,8 @@ models:
       - name: type
         description: '{{ doc("ad_type") }}'
 
-  - name: stg_microsoft_ads__ad_performance_daily_report
-    identifier: "{{ var('microsoft_ads_ad_performance_daily_report_identifier', 'ad_performance_daily_report') }}"
+  - name: stg_microsoft_ads__ad_daily_report
+    identifier: "{{ var('microsoft_ads_ad_daily_report_identifier', 'ad_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -246,8 +246,8 @@ models:
       - name: status
         description: '{{ doc("campaign_status") }}'
 
-  - name: stg_microsoft_ads__campaign_performance_daily_report
-    identifier: "{{ var('microsoft_ads_campaign_performance_daily_report_identifier', 'campaign_performance_daily_report') }}"
+  - name: stg_microsoft_ads__campaign_daily_report
+    identifier: "{{ var('microsoft_ads_campaign_daily_report_identifier', 'campaign_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -315,8 +315,8 @@ models:
       - name: status
         description: '{{ doc("keyword_status") }}'
 
-  - name: stg_microsoft_ads__keyword_performance_daily_report
-    identifier: "{{ var('microsoft_ads_keyword_performance_daily_report_identifier', 'keyword_performance_daily_report') }}"
+  - name: stg_microsoft_ads__keyword_daily_report
+    identifier: "{{ var('microsoft_ads_keyword_daily_report_identifier', 'keyword_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
@@ -374,8 +374,8 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
 
-  - name: stg_microsoft_ads__search_performance_daily_report
-    identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
+  - name: stg_microsoft_ads__search_daily_report
+    identifier: "{{ var('microsoft_ads_search_query_daily_report_identifier', 'search_query_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
