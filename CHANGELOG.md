@@ -1,7 +1,7 @@
 # dbt_microsoft_ads_source v0.6.0
 
 ## 🚨 Breaking Changes 🚨
-PR [] makes the below updates that may affect your workflow:
+[PR #20](https://github.com/fivetran/dbt_microsoft_ads_source/pull/20) makes the below updates that may affect your workflow:
 - `modified_timestamp` columns have been renamed to `modified_at` and `is_most_recent_version` has been renamed to `is_most_recent_record` to reflect more recent package coding standards for the below models:
   - `stg_microsoft_ads__account_history`
   - `stg_microsoft_ads__ad_group_history`
@@ -11,7 +11,7 @@ PR [] makes the below updates that may affect your workflow:
 - Deprecating `*_version_id` fields in `*_history` models.
 
 ## 🎉 Feature Enhancements 🎉
-We have added the below feature enhancements to this package in (PR #)[]:
+We have added the below feature enhancements to this package in [PR #20](https://github.com/fivetran/dbt_microsoft_ads_source/pull/20):
 - Add `get_*_columns` macros for previously included models and newly added models.
 - Updated staging model standards on old models to conform with recent package development standards. Updates were made to the below models:
   - `stg_microsoft_ads__account_history`

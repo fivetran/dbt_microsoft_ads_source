@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_microsoft_ads__account_daily_report_tmp') }}
-
 ),
 
 fields as (
@@ -15,7 +14,10 @@ fields as (
                 staging_columns=get_account_daily_report_columns()
             )
         }}
-        
+
+        {% for metric in var('microsoft_ads__account_report_passthrough_metrics', []) %}
+        , {{ metric }}
+        {% endfor %}
     from base
 ),
 
@@ -42,4 +44,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

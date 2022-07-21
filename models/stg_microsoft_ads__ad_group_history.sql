@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_microsoft_ads__ad_group_history_tmp') }}
-
 ),
 
 fields as (
@@ -33,4 +32,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

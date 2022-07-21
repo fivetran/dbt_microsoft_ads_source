@@ -1,1 +1,2 @@
-select * from {{ var('search_performance_daily_report') }}
+select * 
+from {{ var('search_performance_daily_report') }}

@@ -102,6 +102,10 @@ The full URL that the ad links to.
 The number of impressions that occurred by the grain of the report.
 {% enddocs %}
 
+{% docs is_most_recent_record %} 
+Boolean representing whether a record is the most recent version of that record.
+{% enddocs %}
+
 {% docs keyword_id %}
 The ID of the keyword.
 {% enddocs %}

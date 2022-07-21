@@ -20,6 +20,8 @@ models:
         description: '{{ doc("time_zone") }}'
       - name: currency_code
         description: '{{ doc("currency_code") }}'
+      - name: is_most_recent_record
+        description: '{{ doc("is_most_recent_record") }}'
     
   - name: stg_microsoft_ads__account_daily_report
     identifier: "{{ var('microsoft_ads_account_daily_report_identifier', 'account_performance_daily_report') }}"
@@ -88,6 +90,8 @@ models:
         description: '{{ doc("end_date") }}'
       - name: status
         description: '{{ doc("ad_group_status") }}'
+      - name: is_most_recent_record
+        description: '{{ doc("is_most_recent_record") }}'
 
   - name: stg_microsoft_ads__ad_group_daily_report
     identifier: "{{ var('microsoft_ads_ad_group_daily_report_identifier', 'ad_group_performance_daily_report') }}"
@@ -165,6 +169,8 @@ models:
         description: '{{ doc("ad_status") }}'
       - name: type
         description: '{{ doc("ad_type") }}'
+      - name: is_most_recent_record
+        description: '{{ doc("is_most_recent_record") }}'
 
   - name: stg_microsoft_ads__ad_daily_report
     identifier: "{{ var('microsoft_ads_ad_daily_report_identifier', 'ad_performance_daily_report') }}"
@@ -245,6 +251,8 @@ models:
         description: '{{ doc("time_zone") }}'
       - name: status
         description: '{{ doc("campaign_status") }}'
+      - name: is_most_recent_record
+        description: '{{ doc("is_most_recent_record") }}'
 
   - name: stg_microsoft_ads__campaign_daily_report
     identifier: "{{ var('microsoft_ads_campaign_daily_report_identifier', 'campaign_performance_daily_report') }}"
@@ -314,6 +322,8 @@ models:
         description: '{{ doc("match_type") }}'
       - name: status
         description: '{{ doc("keyword_status") }}'
+      - name: is_most_recent_record
+        description: '{{ doc("is_most_recent_record") }}'
 
   - name: stg_microsoft_ads__keyword_daily_report
     identifier: "{{ var('microsoft_ads_keyword_daily_report_identifier', 'keyword_performance_daily_report') }}"

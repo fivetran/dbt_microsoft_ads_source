@@ -57,11 +57,11 @@ By default, this package will select `clicks`, `impressions`, and `cost` from th
 ```yml
 vars:
   microsoft_ads__account_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.account_performance_daily_report
-  microsoft_ads__campaign_report_passthrough_columns: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.campaign_performance_daily_report
-  microsoft_ads__ad_group_report_passthrough_columns: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_group_performance_daily_report
-  microsoft_ads__ad_report_passthrough_columns: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_performance_daily_report
-  microsoft_ads__keyword_report_passthrough_columns: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.keyword_performance_daily_report
-  microsoft_ads__search_report_passthrough_columns: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.search_query_performance_daily_report
+  microsoft_ads__campaign_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.campaign_performance_daily_report
+  microsoft_ads__ad_group_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_group_performance_daily_report
+  microsoft_ads__ad_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_performance_daily_report
+  microsoft_ads__keyword_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.keyword_performance_daily_report
+  microsoft_ads__search_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.search_query_performance_daily_report
 ```
 ### Change the build schema
 By default, this package builds the Microsoft Ads staging models within a schema titled (`<target_schema>` + `_microsoft_ads_source`) in your destination. If this is not where you would like your Microsoft Ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
