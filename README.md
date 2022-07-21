@@ -54,6 +54,8 @@ vars:
 ### Passing Through Additional Metrics
 By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
 
+> Note: The following passthrough variables are meant only for metrics as they will be aggregated downstream. 
+
 ```yml
 vars:
   microsoft_ads__account_report_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.account_performance_daily_report
