@@ -1,3 +1,4 @@
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
 
 with base as (
 
@@ -15,9 +16,6 @@ fields as (
             )
         }}
         
-        {% for metric in var('microsoft_ads__keyword_report_passthrough_metrics', []) %}
-        , {{ metric }}
-        {% endfor %}
     from base
 ),
 
@@ -43,9 +41,7 @@ final as (
         impressions,
         spend
 
-        {% for metric in var('microsoft_ads__keyword_report_passthrough_metrics', []) %}
-        , {{ metric }}
-        {% endfor %}
+        {{ fivetran_utils.fill_pass_through_columns('microsoft_ads__keyword_passthrough_metrics') }}
     from fields
 )
 

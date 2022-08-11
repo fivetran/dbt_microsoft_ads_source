@@ -12,6 +12,8 @@ models:
     columns:
       - name: account_id
         description: '{{ doc("account_id") }}'
+        tests:
+          - not_null
       - name: account_name
         description: '{{ doc("account_name") }}'
       - name: modified_at
@@ -44,6 +46,8 @@ models:
         description: '{{ doc("date_day") }}' 
       - name: account_id
         description: '{{ doc("account_id") }}'
+        tests:
+          - not_null
       - name: device_os
         description: '{{ doc("device_os") }}'
       - name: device_type
@@ -78,6 +82,8 @@ models:
     columns:
       - name: ad_group_id
         description: '{{ doc("ad_group_id") }}'
+        tests:
+          - not_null
       - name: ad_group_name
         description: '{{ doc("ad_group_name") }}'
       - name: campaign_id
@@ -121,6 +127,8 @@ models:
         description: '{{ doc("campaign_id") }}'
       - name: ad_group_id
         description: '{{ doc("ad_group_id") }}'
+        tests:
+          - not_null
       - name: currency_code
         description: '{{ doc("currency_code") }}'
       - name: device_os
@@ -157,6 +165,8 @@ models:
     columns:
       - name: ad_id
         description: '{{ doc("ad_id") }}'
+        tests:
+          - not_null
       - name: ad_name
         description: '{{ doc("ad_name") }}'
       - name: final_url 
@@ -203,6 +213,8 @@ models:
         description: '{{ doc("ad_group_id") }}'
       - name: ad_id
         description: '{{ doc("ad_id") }}'
+        tests:
+          - not_null
       - name: currency_code
         description: '{{ doc("currency_code") }}'
       - name: device_os
@@ -239,6 +251,8 @@ models:
     columns:
       - name: campaign_id
         description: '{{ doc("campaign_id") }}'
+        tests:
+          - not_null
       - name: campaign_name
         description: '{{ doc("campaign_name") }}'
       - name: account_id
@@ -278,6 +292,8 @@ models:
         description: '{{ doc("account_id") }}'
       - name: campaign_id
         description: '{{ doc("campaign_id") }}'
+        tests:
+          - not_null
       - name: currency_code
         description: '{{ doc("currency_code") }}'
       - name: device_os
@@ -312,6 +328,8 @@ models:
     columns:
       - name: keyword_id
         description: '{{ doc("keyword_id") }}'
+        tests:
+          - not_null
       - name: keyword_name
         description: '{{ doc("keyword_name") }}'
       - name: modified_at
@@ -359,6 +377,8 @@ models:
         description: '{{ doc("ad_id") }}'
       - name: keyword_id
         description: '{{ doc("keyword_id") }}'
+        tests:
+          - not_null
       - name: currency_code
         description: '{{ doc("currency_code") }}'
       - name: device_os
@@ -419,6 +439,8 @@ models:
         description: '{{ doc("keyword_id") }}'
       - name: search_query
         description: '{{ doc("top_vs_other") }}'
+        tests:
+          - not_null
       - name: device_os
         description: '{{ doc("device_os") }}'
       - name: device_type
