@@ -16,6 +16,8 @@
     {"name": "top_vs_other", "datatype": dbt_utils.type_string()}
 ] %}
 
+{{ fivetran_utils.add_pass_through_columns(columns, var('microsoft_ads__account_passthrough_metrics')) }}
+
 {{ return(columns) }}
 
 {% endmacro %}
