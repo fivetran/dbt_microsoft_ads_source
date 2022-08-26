@@ -31,7 +31,20 @@ We have added the below feature enhancements to this package in [PR #20](https:/
 - More robust testing for better data integrity including: 
   - Freshness tests
   - Model grain tests
-- Passthrough metric functionality for more flexibility in reporting.
+- Inclusion of passthrough metrics:
+  - `microsoft_ads__account_passthrough_metrics`
+  - `microsoft_ads__campaign_passthrough_metrics`
+  - `microsoft_ads__ad_group_passthrough_metrics`
+  - `microsoft_ads__ad_passthrough_metrics`
+  - `microsoft_ads__keyword_passthrough_metrics`
+  - `microsoft_ads__search_passthrough_metrics`
+> This applies to all passthrough columns within the `dbt_microsoft_ads_source` package and not just the `microsoft_ads__ad_passthrough_metrics` example.
+```yml
+vars:
+  microsoft_ads__ad_passthrough_metrics:
+    - name: "my_field_to_include" # Required: Name of the field within the source.
+      alias: "field_alias" # Optional: If you wish to alias the field within the staging model.
+```
 - Additional documentation for new models added.
 
 # dbt_microsoft_ads_source v0.5.0

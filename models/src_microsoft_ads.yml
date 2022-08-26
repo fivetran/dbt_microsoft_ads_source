@@ -11,12 +11,13 @@ sources:
     freshness: 
       warn_after: {count: 48, period: hour}
       error_after: {count: 168, period: hour}
+
+    config:
+      enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
     
     tables:
       - name: account_history
         identifier: "{{ var('microsoft_ads_account_history_identifier', 'account_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents a version of one or more Microsoft accounts.
         columns:
           - name: id
@@ -32,8 +33,6 @@ sources:
           
       - name: account_performance_daily_report
         identifier: "{{ var('microsoft_ads_account_daily_report_identifier', 'account_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account and all non-metric columns.
         columns:
           - name: date
@@ -65,8 +64,6 @@ sources:
       
       - name: ad_group_history
         identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents a version of one or more Microsoft ad groups.
         columns:
           - name: id 
@@ -86,8 +83,6 @@ sources:
         
       - name: ad_group_performance_daily_report
         identifier: "{{ var('microsoft_ads_ad_group_daily_report_identifier', 'ad_group_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group and all non-metric columns.
         columns:
           - name: date
@@ -125,8 +120,6 @@ sources:
       
       - name: ad_history
         identifier: "{{ var('microsoft_ads_ad_history_identifier', 'ad_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents a version of one or more Microsoft ads.
         columns:
           - name: id
@@ -143,11 +136,9 @@ sources:
             description: '{{ doc("ad_status") }}'
           - name: type
             description: '{{ doc("ad_type") }}'
- 
+
       - name: ad_performance_daily_report
         identifier: "{{ var('microsoft_ads_ad_daily_report_identifier', 'ad_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group, ad and all non-metric columns.
         columns:
           - name: date
@@ -187,8 +178,6 @@ sources:
 
       - name: campaign_history
         identifier: "{{ var('microsoft_ads_campaign_history_identifier', 'campaign_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents a version of one or more Microsoft campaigns.
         columns:
           - name: id 
@@ -208,8 +197,6 @@ sources:
 
       - name: campaign_performance_daily_report
         identifier: "{{ var('microsoft_ads_campaign_daily_report_identifier', 'campaign_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account, campaign and all non-metric columns.
         columns:
           - name: date
@@ -243,8 +230,6 @@ sources:
       
       - name: keyword_history
         identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents a version of one or more Microsoft keywords.
         columns:
           - name: id 
@@ -262,8 +247,6 @@ sources:
 
       - name: keyword_performance_daily_report
         identifier: "{{ var('microsoft_ads_keyword_daily_report_identifier', 'keyword_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
         columns:
           - name: date
@@ -305,8 +288,6 @@ sources:
       
       - name: search_query_performance_daily_report
         identifier: "{{ var('microsoft_ads_search_daily_report_identifier', 'search_query_performance_daily_report') }}"
-        config:
-          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
         columns:
           - name: date
