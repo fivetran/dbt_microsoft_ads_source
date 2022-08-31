@@ -29,7 +29,7 @@ seeds:
       last_modified_time: "timestamp"
       modified_time: "timestamp"
       spend: "float"
-      impressions: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
+      impressions: "integer"
 
 dispatch:
   - macro_namespace: dbt_utils
