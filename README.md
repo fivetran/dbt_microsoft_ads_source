@@ -52,18 +52,29 @@ vars:
 
 ## (Optional) Step 4: Additional configurations
 ### Passing Through Additional Metrics
-By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the following configuration to your `dbt_project.yml` file:
+By default, this package will select `clicks`, `impressions`, and `cost` from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
 
-> Note: The following passthrough variables are meant only for metrics as they will be aggregated downstream. 
+>**Note** Please ensure you exercised due diligence when adding metrics to these models. The metrics added by default (taps, impressions, and spend) have been vetted by the Fivetran team maintaining this package for accuracy. There are metrics included within the source reports, for example metric averages, which may be inaccurately represented at the grain for reports created in this package. You will want to ensure whichever metrics you pass through are indeed appropriate to aggregate at the respective reporting levels provided in this package.
 
 ```yml
 vars:
-  microsoft_ads__account_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.account_performance_daily_report
-  microsoft_ads__campaign_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.campaign_performance_daily_report
-  microsoft_ads__ad_group_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_group_performance_daily_report
-  microsoft_ads__ad_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.ad_performance_daily_report
-  microsoft_ads__keyword_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.keyword_performance_daily_report
-  microsoft_ads__search_passthrough_metrics: ['the', 'list', 'of', 'metric', 'columns', 'to', 'include'] # from microsoft_ads.search_query_performance_daily_report
+    microsoft_ads__account_passthrough_metrics: 
+      - name: "new_custom_field"
+        alias: "custom_field"
+    microsoft_ads__campaign_passthrough_metrics:
+      - name: "this_field"
+    microsoft_ads__ad_group_passthrough_metrics:
+      - name: "unique_string_field"
+        alias: "field_id"
+    microsoft_ads__ad_passthrough_metrics: 
+      - name: "new_custom_field"
+        alias: "custom_field"
+      - name: "a_second_field"
+    microsoft_ads__keyword_passthrough_metrics:
+      - name: "this_field"
+    microsoft_ads__search_passthrough_metrics:
+      - name: "unique_string_field"
+        alias: "field_id"
 ```
 ### Change the build schema
 By default, this package builds the Microsoft Ads staging models within a schema titled (`<target_schema>` + `_microsoft_ads_source`) in your destination. If this is not where you would like your Microsoft Ads staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
