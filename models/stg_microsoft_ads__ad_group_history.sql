@@ -1,32 +1,37 @@
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+
 with base as (
 
-    select *
-    from {{ var('ad_group_history') }}
+    select * 
+    from {{ ref('stg_microsoft_ads__ad_group_history_tmp') }}
+),
 
-), fields as (
-
-    select 
-        id as ad_group_id,
-        campaign_id,
-        name as ad_group_name,
-        modified_time as modified_timestamp
-    from base
-
-), surrogate_key as (
-
-    select 
-        *,
-        {{ dbt_utils.surrogate_key(['ad_group_id','modified_timestamp']) }} as ad_group_version_id
-    from fields
-
-), most_recent_record as (
+fields as (
 
     select
-        *,
-        row_number() over (partition by ad_group_id order by modified_timestamp desc) = 1 as is_most_recent_version
-    from surrogate_key
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__ad_group_history_tmp')),
+                staging_columns=get_ad_group_history_columns()
+            )
+        }}
+        
+    from base
+),
 
+final as (
+    
+    select 
+        id as ad_group_id,
+        name as ad_group_name,
+        campaign_id,
+        modified_time as modified_at,
+        start_date,
+        end_date,
+        status,
+        row_number() over (partition by id order by modified_time desc) = 1 as is_most_recent_record
+    from fields
 )
 
-select *
-from most_recent_record
+select * 
+from final

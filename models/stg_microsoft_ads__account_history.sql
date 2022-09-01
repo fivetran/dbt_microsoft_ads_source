@@ -1,31 +1,35 @@
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+
 with base as (
 
-    select *
-    from {{ var('account_history') }}
+    select * 
+    from {{ ref('stg_microsoft_ads__account_history_tmp') }}
+),
 
-), fields as (
+fields as (
 
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__account_history_tmp')),
+                staging_columns=get_account_history_columns()
+            )
+        }}
+        
+    from base
+),
+
+final as (
+    
     select 
         id as account_id,
         name as account_name,
-        last_modified_time as modified_timestamp
-    from base
-
-), surrogate_key as (
-
-    select 
-        *,
-        {{ dbt_utils.surrogate_key(['account_id','modified_timestamp']) }} as account_version_id
+        last_modified_time as modified_at,
+        time_zone,
+        currency_code,
+        row_number() over (partition by id order by last_modified_time desc) = 1 as is_most_recent_record
     from fields
-
-), most_recent_record as (
-
-    select
-        *,
-        row_number() over (partition by account_id order by modified_timestamp desc) = 1 as is_most_recent_version
-    from surrogate_key
-
 )
 
-select *
-from most_recent_record
+select * 
+from final
