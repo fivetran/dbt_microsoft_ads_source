@@ -311,14 +311,14 @@ models:
         description: '{{ doc("delivered_match_type") }}'
       - name: top_vs_other
         description: '{{ doc("top_vs_other") }}'
+      - name: budget_association_status
+        description: '{{ doc("budget_association_status") }}'
       - name: clicks
         description: '{{ doc("clicks") }}'
       - name: impressions
         description: '{{ doc("impressions") }}'
       - name: spend
         description: '{{ doc("spend") }}'
-      - name: budget_association_status
-        description: '{{ doc("budget_association_status") }}'
 
   - name: stg_microsoft_ads__keyword_history
     identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"

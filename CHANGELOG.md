@@ -1,8 +1,3 @@
-# dbt_microsoft_ads_source v0.7.1
-
-[PR #](link) includes the following updates:
-- Added `budget_association_status` into the `stg_microsoft_ads__campaign_daily_report` table in order account for campaign budgets that end midday. Including `budget_association_status` as another grain to test by, will reduce tests failing due to non-uniqueness of rows. 
-
 # dbt_microsoft_ads_source v0.7.0
 
 ## 🚨 Breaking Changes 🚨:
@@ -41,6 +36,12 @@
     - `dbt.current_timestamp_backcompat`
     - `dbt.current_timestamp_in_utc_backcompat`
 - `packages.yml` has been updated to reflect new default `fivetran/fivetran_utils` version, previously `[">=0.3.0", "<0.4.0"]` now `[">=0.4.0", "<0.5.0"]`.
+
+[PR #23](https://github.com/fivetran/dbt_microsoft_ads_source/pull/23) includes the following updates:
+- Added `budget_association_status` into the `stg_microsoft_ads__campaign_daily_report` table in order to account for campaign budgets that end midday. Including `budget_association_status` as another grain to test by, will reduce tests failing due to non-uniqueness of rows. 
+
+## Contributors
+- @MaximeLagresle - Thank you for bring up [this issue](https://github.com/fivetran/dbt_microsoft_ads_source/issues/21) in office hours!
 
 # dbt_microsoft_ads_source v0.6.0
 
