@@ -14,7 +14,8 @@
     {"name": "impressions", "datatype": dbt.type_int()},
     {"name": "network", "datatype": dbt.type_string()},
     {"name": "spend", "datatype": dbt.type_float()},
-    {"name": "top_vs_other", "datatype": dbt.type_string()}
+    {"name": "top_vs_other", "datatype": dbt.type_string()},
+    {"name": "budget_association_status", "datatype": dbt.type_string()}
 ] %}
 
 {{ fivetran_utils.add_pass_through_columns(columns, var('microsoft_ads__campaign_passthrough_metrics')) }}

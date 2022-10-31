@@ -285,6 +285,7 @@ models:
             - bid_match_type
             - delivered_match_type
             - top_vs_other
+            - budget_association_status
     columns:
       - name: date_day
         description: '{{ doc("date_day") }}' 
@@ -316,6 +317,8 @@ models:
         description: '{{ doc("impressions") }}'
       - name: spend
         description: '{{ doc("spend") }}'
+      - name: budget_association_status
+        description: '{{ doc("budget_association_status") }}'
 
   - name: stg_microsoft_ads__keyword_history
     identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"

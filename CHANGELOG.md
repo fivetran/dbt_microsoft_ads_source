@@ -1,3 +1,8 @@
+# dbt_microsoft_ads_source v0.7.1
+
+[PR #](link) includes the following updates:
+- Added `budget_association_status` into the `stg_microsoft_ads__campaign_daily_report` table in order account for campaign budgets that end midday. Including `budget_association_status` as another grain to test by, will reduce tests failing due to non-uniqueness of rows. 
+
 # dbt_microsoft_ads_source v0.7.0
 
 ## 🚨 Breaking Changes 🚨:

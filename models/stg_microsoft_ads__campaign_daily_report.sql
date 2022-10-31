@@ -33,6 +33,7 @@ final as (
         bid_match_type,
         delivered_match_type,
         top_vs_other,
+        budget_association_status,
         clicks,
         impressions,
         spend
