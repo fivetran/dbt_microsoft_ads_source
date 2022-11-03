@@ -111,6 +111,8 @@ sources:
             description: '{{ doc("delivered_match_type") }}'
           - name: top_vs_other
             description: '{{ doc("top_vs_other") }}'
+          - name: budget_association_status
+            description: '{{ doc("budget_association_status") }}'
           - name: clicks
             description: '{{ doc("clicks") }}'
           - name: impressions
