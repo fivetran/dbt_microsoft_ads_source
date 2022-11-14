@@ -4,7 +4,7 @@
 [PR #24](https://github.com/fivetran/dbt_microsoft_ads_source/pull/24) includes the following updates:
 - Added `budget_association_status` into the `stg_microsoft_ads__campaign_daily_report` table in order to account for campaign budgets that end midday. Including `budget_association_status` as another grain to test by, will reduce tests failing due to non-uniqueness of rows. 
 
-## Contributors
+## Contributors 
 - @MaximeLagresle - Thank you for bringing up [this issue](https://github.com/fivetran/dbt_microsoft_ads_source/issues/21) in office hours!
 # dbt_microsoft_ads_source v0.6.0
 ## 🚨 Breaking Changes 🚨
