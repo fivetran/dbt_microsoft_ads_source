@@ -1,5 +1,12 @@
-# dbt_microsoft_ads_source v0.6.0
+# dbt_microsoft_ads v0.6.1
 
+## Bug Fixes
+[PR #24](https://github.com/fivetran/dbt_microsoft_ads_source/pull/24) includes the following updates:
+- Added `budget_association_status` into the `stg_microsoft_ads__campaign_daily_report` table in order to account for campaign budgets that end midday. Including `budget_association_status` as another grain to test by, will reduce tests failing due to non-uniqueness of rows. 
+
+## Contributors 
+- @MaximeLagresle - Thank you for bringing up [this issue](https://github.com/fivetran/dbt_microsoft_ads_source/issues/21) in office hours!
+# dbt_microsoft_ads_source v0.6.0
 ## 🚨 Breaking Changes 🚨
 [PR #20](https://github.com/fivetran/dbt_microsoft_ads_source/pull/20) makes the below updates that may affect your workflow:
 - `modified_timestamp` columns have been renamed to `modified_at` and `is_most_recent_version` has been renamed to `is_most_recent_record` to reflect more recent package coding standards for the below models:

@@ -46,6 +46,10 @@ The ad type associated with this record; see the following [documentation](https
 The bid match type associated with this record; values include 'Broad', 'Exact', 'Phrase'.
 {% enddocs %}
 
+{% docs budget_association_status %}
+The status of the campaign's budget.
+{% enddocs %}
+
 {% docs campaign_id %}
 The ID of the campaign.
 {% enddocs %}
