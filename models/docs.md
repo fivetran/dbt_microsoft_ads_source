@@ -158,7 +158,6 @@ The time zone associated with this record.
 The position of the ad associated with this record. For more information, refer to Microsoft [documentation](https://help.ads.microsoft.com/apex/index/22/en/14009).
 {% enddocs %}
 
-
 {% docs source_relation %}
 The source of the record if the unioning functionality is being used. If not this field will be empty.
 {% enddocs %}
