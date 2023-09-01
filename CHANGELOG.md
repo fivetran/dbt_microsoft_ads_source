@@ -8,10 +8,7 @@
 - To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro.
 - Updated tests to account for the new `source_relation` column.
 
-# dbt_microsoft_ads_source v0.UPDATE.UPDATE
-
- ## Under the Hood:
-
+[PR #26](https://github.com/fivetran/dbt_microsoft_ads_source/pull/26) includes the following updates:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
 - Updated the pull request [templates](/.github).
 # dbt_microsoft_ads_source v0.7.0
