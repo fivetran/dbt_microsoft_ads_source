@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: microsoft_ads
+  - name: microsoft_ads # This source will only be used if you are using a single microsoft_ads source connector. If multiple sources are being unioned, their tables will be directly referenced via adapter.get_relation.
     schema: "{{ var('microsoft_ads_schema', 'bingads') }}"
     database: "{% if target.type != 'spark'%}{{ var('microsoft_ads_database', target.database) }}{% endif %}"
     

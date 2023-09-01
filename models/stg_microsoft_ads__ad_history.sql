@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
 
 with base as (
@@ -16,12 +18,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='microsoft_ads_union_schemas', 
+            union_database_variable='microsoft_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         id as ad_id,
         title_part_1 as ad_name,
         final_url,
@@ -29,7 +38,7 @@ final as (
         modified_time as modified_at,
         status,
         type,
-        row_number() over (partition by id order by modified_time desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by modified_time desc) = 1 as is_most_recent_record
     from fields
 )
 

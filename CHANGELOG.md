@@ -1,3 +1,13 @@
+# dbt_microsoft_ads_source v0.8.0
+[PR #29](https://github.com/fivetran/dbt_microsoft_ads_source/pull/29) includes the following updates:
+## Feature update 🎉
+- Unioning capability! This adds the ability to union source data from multiple microsoft_ads connectors. Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source/blob/main/README.md) for more details.
+
+## Under the hood 🚘
+- Updated tmp models to union source data using the `fivetran_utils.union_data` macro. 
+- To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro.
+- Updated tests to account for the new `source_relation` column.
+
 # dbt_microsoft_ads_source v0.UPDATE.UPDATE
 
  ## Under the Hood:
