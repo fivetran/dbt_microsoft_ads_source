@@ -7,7 +7,7 @@
         schema_variable='microsoft_ads_schema', 
         default_database=target.database,
         default_schema='microsoft_ads',
-        default_variable='keyword_performance_daily_report_source',
+        default_variable='keyword_performance_daily_report',
         union_schema_variable='microsoft_ads_union_schemas',
         union_database_variable='microsoft_ads_union_databases'
     )

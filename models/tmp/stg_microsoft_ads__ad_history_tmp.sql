@@ -7,7 +7,7 @@
         schema_variable='microsoft_ads_schema', 
         default_database=target.database,
         default_schema='microsoft_ads',
-        default_variable='ad_history_source',
+        default_variable='ad_history',
         union_schema_variable='microsoft_ads_union_schemas',
         union_database_variable='microsoft_ads_union_databases'
     )
