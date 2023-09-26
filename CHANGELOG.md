@@ -6,7 +6,6 @@
 | current  | previous |
 |----------|----------|
 |microsoft_ads_account_performance_daily_report_identifier | microsoft_ads_account_daily_report_identifier |
-|microsoft_ads_account_performance_daily_report_identifier | microsoft_ads_account_daily_report_identifier
 |microsoft_ads_ad_group_performance_daily_report_identifier | microsoft_ads_ad_group_daily_report_identifier|
 |microsoft_ads_ad_performance_daily_report_identifier | microsoft_ads_ad_daily_report_identifier|
 |microsoft_ads_campaign_performance_daily_report_identifier | microsoft_ads_campaign_daily_report_identifier|
