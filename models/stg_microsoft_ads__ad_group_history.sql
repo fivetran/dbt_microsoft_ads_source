@@ -16,12 +16,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='microsoft_ads_union_schemas', 
+            union_database_variable='microsoft_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         id as ad_group_id,
         name as ad_group_name,
         campaign_id,
@@ -29,7 +36,7 @@ final as (
         start_date,
         end_date,
         status,
-        row_number() over (partition by id order by modified_time desc) = 1 as is_most_recent_record
+        row_number() over (partition by source_relation, id order by modified_time desc) = 1 as is_most_recent_record
     from fields
 )
 

@@ -16,12 +16,19 @@ fields as (
             )
         }}
 
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='microsoft_ads_union_schemas', 
+            union_database_variable='microsoft_ads_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         date as date_day,
         account_id,
         device_os,

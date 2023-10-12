@@ -7,9 +7,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - account_id
             - modified_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: account_id
         description: '{{ doc("account_id") }}'
         tests:
@@ -26,11 +29,12 @@ models:
         description: '{{ doc("is_most_recent_record") }}'
     
   - name: stg_microsoft_ads__account_daily_report
-    identifier: "{{ var('microsoft_ads_account_daily_report_identifier', 'account_performance_daily_report') }}"
+    identifier: "{{ var('microsoft_ads_account_performance_daily_report_identifier', 'account_performance_daily_report') }}"
     description: Each record in this table represents the daily performance by account and all non-metric columns.
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - device_os
@@ -42,6 +46,8 @@ models:
             - delivered_match_type
             - top_vs_other
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
@@ -77,9 +83,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_group_id
             - modified_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_group_id
         description: '{{ doc("ad_group_id") }}'
         tests:
@@ -105,6 +114,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - campaign_id
@@ -119,6 +129,8 @@ models:
             - delivered_match_type
             - top_vs_other
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
@@ -160,9 +172,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - ad_id
             - modified_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: ad_id
         description: '{{ doc("ad_id") }}'
         tests:
@@ -188,6 +203,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - campaign_id
@@ -203,6 +219,8 @@ models:
             - delivered_match_type
             - top_vs_other
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
@@ -246,9 +264,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - campaign_id
             - modified_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: campaign_id
         description: '{{ doc("campaign_id") }}'
         tests:
@@ -274,6 +295,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - campaign_id
@@ -287,6 +309,8 @@ models:
             - top_vs_other
             - budget_association_status
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
@@ -326,9 +350,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - keyword_id
             - modified_at
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: keyword_id
         description: '{{ doc("keyword_id") }}'
         tests:
@@ -352,6 +379,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - campaign_id
@@ -368,6 +396,8 @@ models:
             - delivered_match_type
             - top_vs_other
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
@@ -413,6 +443,7 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - date_day
             - account_id
             - campaign_id
@@ -428,6 +459,8 @@ models:
             - delivered_match_type
             - top_vs_other
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: date_day
         description: '{{ doc("date_day") }}' 
       - name: account_id
