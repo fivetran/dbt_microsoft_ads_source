@@ -41,6 +41,8 @@ final as (
         delivered_match_type,
         top_vs_other,
         budget_association_status,
+        budget_name,
+        budget_status,
         clicks,
         impressions,
         spend
