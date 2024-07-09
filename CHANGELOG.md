@@ -1,11 +1,17 @@
 # dbt_microsoft_ads_source v0.9.0
 
-TODO
-- add new fields
-  - added them to test
-- added workflow
-- updated PR template 
-- updated yml docs for budget fields
+[PR #31](https://github.com/fivetran/dbt_microsoft_ads_source/pull/31) includes the following updates:
+
+## Bug Fixes
+- Accommodates the recent addition of the `budget_name` and `budget_status` fields to the `CAMPAIGN_PERFORMANCE_DAILY_REPORT` source table. These fields are now:
+  - Included and documented in the `stg_microsoft_ads__campaign_daily_report` model.
+  - Included in uniqueness tests on `stg_microsoft_ads__campaign_daily_report`, as they affect the grain of the report and may have therefore induced uniqueness test failures.
+- Added proper documentation for the pre-existing `budget_association_status` field (also from `CAMPAIGN_PERFORMANCE_DAILY_REPORT`).
+
+## Under the Hood
+- Included auto-releaser GitHub Actions workflow to automate future releases.
+- Updated the PR Templates for package maintainers to our most up-to-date standards.
+- Upgraded integration test dbt-adapter versions.
 
 # dbt_microsoft_ads_source v0.8.0
 [PR #29](https://github.com/fivetran/dbt_microsoft_ads_source/pull/29) includes the following updates:

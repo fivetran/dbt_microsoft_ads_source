@@ -111,12 +111,6 @@ sources:
             description: '{{ doc("delivered_match_type") }}'
           - name: top_vs_other
             description: '{{ doc("top_vs_other") }}'
-          - name: budget_association_status
-            description: '{{ doc("budget_association_status") }}'
-          - name: budget_name
-            description: '{{ doc("budget_name") }}'
-          - name: budget_status
-            description: '{{ doc("budget_status") }}'
           - name: clicks
             description: '{{ doc("clicks") }}'
           - name: impressions
@@ -233,7 +227,13 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
-      
+          - name: budget_association_status
+            description: '{{ doc("budget_association_status") }}'
+          - name: budget_name
+            description: '{{ doc("budget_name") }}'
+          - name: budget_status
+            description: '{{ doc("budget_status") }}'
+            
       - name: keyword_history
         identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
         description: Each record in this table represents a version of one or more Microsoft keywords.
