@@ -3,7 +3,7 @@
 [PR #31](https://github.com/fivetran/dbt_microsoft_ads_source/pull/31) includes the following updates:
 
 ## Bug Fixes
-- Accommodates the recent addition of the `budget_name` and `budget_status` fields to the `CAMPAIGN_PERFORMANCE_DAILY_REPORT` source table. These fields are now:
+- Accommodates when the `budget_name` and `budget_status` fields are populated within the `CAMPAIGN_PERFORMANCE_DAILY_REPORT` source table. These fields are now:
   - Included and documented in the `stg_microsoft_ads__campaign_daily_report` model.
   - Included in uniqueness tests on `stg_microsoft_ads__campaign_daily_report`, as they affect the grain of the report and may have therefore induced uniqueness test failures.
 - Added proper documentation for the pre-existing `budget_association_status` field (also from `CAMPAIGN_PERFORMANCE_DAILY_REPORT`).
