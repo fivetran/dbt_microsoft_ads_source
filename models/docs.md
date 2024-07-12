@@ -51,7 +51,7 @@ Indicates whether or not the campaign is currently spending from the budget ment
 {% enddocs %}
 
 {% docs budget_name %}
-The status of the campaign's budget. This column will be empty for unshared budgets.
+The name of the budget. This column will be empty for unshared budgets.
 {% enddocs %}
 
 {% docs budget_status %}
