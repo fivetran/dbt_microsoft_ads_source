@@ -47,7 +47,15 @@ The bid match type associated with this record; values include 'Broad', 'Exact',
 {% enddocs %}
 
 {% docs budget_association_status %}
-The status of the campaign's budget.
+Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column. The possible values are `Current` and `Ended`.
+{% enddocs %}
+
+{% docs budget_name %}
+The name of the budget. This column will be empty for unshared budgets.
+{% enddocs %}
+
+{% docs budget_status %}
+The budget status. The possible values are `Active` and `Deleted`. This column will be empty for unshared budgets.
 {% enddocs %}
 
 {% docs campaign_id %}

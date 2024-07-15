@@ -308,6 +308,8 @@ models:
             - delivered_match_type
             - top_vs_other
             - budget_association_status
+            - budget_name 
+            - budget_status
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -337,6 +339,10 @@ models:
         description: '{{ doc("top_vs_other") }}'
       - name: budget_association_status
         description: '{{ doc("budget_association_status") }}'
+      - name: budget_name
+        description: '{{ doc("budget_name") }}'
+      - name: budget_status
+        description: '{{ doc("budget_status") }}'
       - name: clicks
         description: '{{ doc("clicks") }}'
       - name: impressions
