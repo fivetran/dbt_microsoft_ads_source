@@ -88,7 +88,7 @@ Number of conversions, measured by completion of an action by a customer after v
 
 {% docs conversions %}
 Number of conversions, measured by completion of an action by a customer after viewing your ad. 
-{% docs %}
+{% enddocs %}
 
 {% docs conversions_src %}
 Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true. This column is deprecated as of 2022, so it's recommended to use `conversions_qualified`.
