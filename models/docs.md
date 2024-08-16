@@ -86,6 +86,10 @@ The number of clicks that occurred by the grain of the report.
 Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true.
 {% enddocs %}
 
+{% docs conversions %}
+Number of conversions, measured by completion of an action by a customer after viewing your ad. 
+{% docs %}
+
 {% docs conversions_src %}
 Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true. This column is deprecated as of 2022, so it's recommended to use `conversions_qualified`.
 {% enddocs %}
