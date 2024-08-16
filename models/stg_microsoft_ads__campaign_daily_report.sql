@@ -43,11 +43,16 @@ final as (
         budget_association_status,
         budget_name,
         budget_status,
-        clicks,
-        impressions,
-        spend
+        coalesce(clicks, 0) as clicks, 
+        coalesce(impressions, 0) as impressions,
+        coalesce(spend, 0) as spend,
+        coalesce(coalesce(conversions_qualified, conversions), 0) as conversions,
+        coalesce(revenue, 0) as conversions_value,
+        coalesce(coalesce(all_conversions_qualified, all_conversions), 0) as all_conversions,
+        coalesce(all_revenue, 0) as all_conversions_value
 
-        {{ fivetran_utils.fill_pass_through_columns('microsoft_ads__campaign_passthrough_metrics') }}
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__campaign_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+
     from fields
 )
 

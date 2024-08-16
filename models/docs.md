@@ -82,6 +82,38 @@ The campaign type associated with this record; see the following [documentation]
 The number of clicks that occurred by the grain of the report.
 {% enddocs %}
 
+{% docs conversions_qualified %}
+Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true.
+{% enddocs %}
+
+{% docs conversions_src %}
+Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true. This column is deprecated as of 2022, so it's recommended to use `conversions_qualified`.
+{% enddocs %}
+
+{% docs conversions_stg %}
+Number of conversions, measured by completion of an action by a customer after viewing your ad. This value will default to `conversions_qualified` if synced in your models. If it doesn't exist, this value will default to `conversions` if synced in your models. If it doesn't exist, this value will be 0.
+{% enddocs %}
+ 
+{% docs revenue %}
+The revenue optionally reported by the advertiser as a result of the `conversions` figure.
+{% enddocs %}
+
+{% docs all_conversions_qualified %}
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This includes data from all conversions goals regardless of their ExcludeFromBidding setting.
+{% enddocs %}
+
+{% docs all_conversions_src %}
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This includes data from all conversions goals regardless of their ExcludeFromBidding setting. This column is deprecated as of 2022, so it's recommended to use `all_conversions_qualified`.
+{% enddocs %}
+
+{% docs all_conversions_stg %}
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This value will default to `all_conversions_qualified` if synced in your models. If it doesn't exist, this value will default to `all_conversions` if synced in your models. If it doesn't exist, this value will be 0.
+{% enddocs %}
+
+{% docs all_revenue %}
+The revenue optionally reported by the advertiser as a result of the `all_conversions` figure.
+{% enddocs %}
+
 {% docs currency_code %}
 The currency code associated with spend and, if applicable, other metrics associated with currency.
 {% enddocs %}

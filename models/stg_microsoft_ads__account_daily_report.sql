@@ -39,11 +39,15 @@ final as (
         bid_match_type,
         delivered_match_type,
         top_vs_other,
-        clicks, 
-        impressions,
-        spend
-        
-        {{ fivetran_utils.fill_pass_through_columns('microsoft_ads__account_passthrough_metrics') }}
+        coalesce(clicks, 0) as clicks, 
+        coalesce(impressions, 0) as impressions,
+        coalesce(spend, 0) as spend,
+        coalesce(coalesce(conversions_qualified, conversions), 0) as conversions,
+        coalesce(revenue, 0) as conversions_value,
+        all_conversions_qualified as all_conversions   
+
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+
     from fields
 )
 

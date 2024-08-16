@@ -61,6 +61,18 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'     
       
       - name: ad_group_history
         identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
@@ -117,7 +129,19 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
-      
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
+
       - name: ad_history
         identifier: "{{ var('microsoft_ads_ad_history_identifier', 'ad_history') }}"
         description: Each record in this table represents a version of one or more Microsoft ads.
@@ -175,6 +199,18 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
 
       - name: campaign_history
         identifier: "{{ var('microsoft_ads_campaign_history_identifier', 'campaign_history') }}"
@@ -233,7 +269,19 @@ sources:
             description: '{{ doc("budget_name") }}'
           - name: budget_status
             description: '{{ doc("budget_status") }}'
-            
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
+
       - name: keyword_history
         identifier: "{{ var('microsoft_ads_keyword_history_identifier', 'keyword_history') }}"
         description: Each record in this table represents a version of one or more Microsoft keywords.
@@ -291,7 +339,20 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
-      
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
+
+
       - name: search_query_performance_daily_report
         identifier: "{{ var('microsoft_ads_search_query_performance_daily_report_identifier', 'search_query_performance_daily_report') }}"
         description: Each record in this table represents the daily performance by account, campaign, ad group, ad, keyword and all non-metric columns.
@@ -334,3 +395,15 @@ sources:
             description: '{{ doc("impressions") }}'
           - name: spend
             description: '{{ doc("spend") }}'
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: conversions
+            description: '{{ doc("conversions_src") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions_src") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
