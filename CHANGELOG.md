@@ -1,5 +1,4 @@
 # dbt_microsoft_ads_source v0.10.0
-
 [PR #32](https://github.com/fivetran/dbt_microsoft_ads_source/pull/32) includes the following updates:
 
 ## Feature Updates: Conversion Support!
@@ -7,16 +6,18 @@
   - `conversions`: Number of conversions, measured by completion of an action by a customer after viewing your ad. This will default to `conversions_qualified` if synced (recommended), then `conversions` in case you are still utilizing, then 0.
   - `conversions_value`: The revenue reported by the advertiser as a result of the `conversions` figure.
   - `all_conversions`: Number of all conversions, measured by completion of an action by a customer after viewing your ad. This will default to `all_conversions_qualified` if synced (recommended), then `all_conversions` in case you are still utilizing, then 0.
-  - `all_conversions_value`: The revenue reported by the advertiser as a result of the `all_conversions` figure.
+  - `all_conversions_value` (except `stg_microsoft_ads__account_daily_report`): The revenue reported by the advertiser as a result of the `all_conversions` figure.
 - In the event that you were already passing the above fields in via our [passthrough columns](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#passing-through-additional-metrics), the package will dynamically avoid "duplicate column" errors.
 - Added coalesce to 0 to `stg_microsoft_ads__<entity>_daily_report` model metrics to account to avoid any potential null values that could disrupt aggregate calculations [in the `dbt_microsoft_ads` transformation package](https://github.com/fivetran/dbt_microsoft_ads).
 
 ## Under the Hood 
 - Created `microsoft_ads_fill_pass_through_columns` and `microsoft_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via passthrough fields.
 > The above new field additions are **breaking changes** for users who were not already bringing in conversion fields via passthrough columns.
+- Updated seed files with new fields to test and validate on local data, provided specific casting to numeric (for currency) and integers.
 
-## Documentation
-- Updated yml files with new fields mentioned above, as well as the source columns that 
+## Documentation Update
+- Updated source and staging yml files with new fields mentioned above.
+
 ## Contributors
 - [Seer Interactive](https://www.seerinteractive.com/?utm_campaign=Fivetran%20%7C%20Models&utm_source=Fivetran&utm_medium=Fivetran%20Documentation)
 
