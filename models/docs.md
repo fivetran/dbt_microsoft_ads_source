@@ -105,6 +105,10 @@ Number of conversions, measured by completion of an action by a customer after v
 The revenue optionally reported by the advertiser as a result of the `conversions` figure.
 {% enddocs %}
 
+{% docs all_conversions %}
+Number of all conversions, measured by completion of an action by a customer after viewing your ad.
+{% enddocs %}
+
 {% docs all_conversions_qualified %}
 Number of all conversions, measured by completion of an action by a customer after viewing your ad. This includes data from all conversions goals regardless of their ExcludeFromBidding setting.
 {% enddocs %}

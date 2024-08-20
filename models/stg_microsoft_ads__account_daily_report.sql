@@ -44,7 +44,7 @@ final as (
         coalesce(spend, 0) as spend,
         coalesce(coalesce(conversions_qualified, conversions), 0) as conversions,
         coalesce(revenue, 0) as conversions_value,
-        all_conversions_qualified as all_conversions   
+        coalesce(all_conversions_qualified, 0) as all_conversions   
 
         {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
 
