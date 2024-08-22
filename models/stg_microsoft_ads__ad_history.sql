@@ -1,4 +1,11 @@
-{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True),
+    unique_key = ['source_relation','ad_id','modified_at'],
+    partition_by={
+      "field": "modified_at", 
+      "data_type": "TIMESTAMP",
+      "granularity": "day"
+    }
+    ) }}
 
 with base as (
 
@@ -33,7 +40,7 @@ final as (
         title_part_1 as ad_name,
         final_url,
         ad_group_id,
-        modified_time as modified_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", modified_time, "America/New_York") AS TIMESTAMP) as modified_at,    --EST Conversion
         status,
         type,
         row_number() over (partition by source_relation, id order by modified_time desc) = 1 as is_most_recent_record

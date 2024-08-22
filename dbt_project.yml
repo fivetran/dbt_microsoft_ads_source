@@ -24,7 +24,7 @@ vars:
   microsoft_ads__search_passthrough_metrics: []
 models:
   microsoft_ads_source:
-    +schema: microsoft_ads_source
+    +schema: bingads_stg_dev
     +materialized: table
     tmp:
       +materialized: view

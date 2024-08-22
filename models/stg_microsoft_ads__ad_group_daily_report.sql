@@ -1,4 +1,11 @@
-{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True),
+    unique_key = ['source_relation','date_day','account_id','campaign_id','ad_group_id','device_os','device_type','network','language','currency_code','ad_distribution','bid_match_type','delivered_match_type','top_vs_other'],
+    partition_by={
+      "field": "date_day", 
+      "data_type": "date",
+      "granularity": "day"
+    }
+    ) }}
 
 with base as (
 
@@ -29,7 +36,7 @@ final as (
 
     select
         source_relation, 
-        date as date_day,
+        DATE(TIMESTAMP(date, "America/New_York")) AS date_day,     --EST timezone conversion
         account_id,
         campaign_id,
         ad_group_id,
@@ -51,4 +58,4 @@ final as (
 )
 
 select * 
-from final
+from final where DATE(date_day) >= DATE_ADD(CURRENT_DATE(), INTERVAL -2 YEAR)

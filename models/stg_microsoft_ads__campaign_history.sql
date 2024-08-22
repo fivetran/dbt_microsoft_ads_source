@@ -1,4 +1,11 @@
-{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True),
+    unique_key = ['source_relation','campaign_id','modified_at'],
+   partition_by={
+      "field": "modified_at", 
+      "data_type": "TIMESTAMP",
+      "granularity": "day"
+    }
+    ) }}
 
 with base as (
 
@@ -32,7 +39,7 @@ final as (
         id as campaign_id,
         name as campaign_name,
         account_id,
-        modified_time as modified_at,
+        CAST(FORMAT_TIMESTAMP("%F %T", modified_time, "America/New_York") AS TIMESTAMP) as modified_at,    --EST Conversion
         type,
         time_zone,
         status,
