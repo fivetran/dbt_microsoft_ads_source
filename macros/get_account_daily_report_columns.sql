@@ -17,12 +17,10 @@
     {"name": "conversions_qualified", "datatype": dbt.type_int()},
     {"name": "conversions", "datatype": dbt.type_int()},
     {"name": "revenue", "datatype": dbt.type_numeric()},
-    {"name": "all_conversions", "datatype": dbt.type_int()},
-    {"name": "all_conversions_qualified", "datatype": dbt.type_int()},
-    {"name": "all_revenue", "datatype": dbt.type_numeric()}
+    {"name": "all_conversions_qualified", "datatype": dbt.type_int()}
 ] %}         
 
-{{ microsoft_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except_fields=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+{{ microsoft_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except_fields=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified']) }}
 
 {{ return(columns) }}
 

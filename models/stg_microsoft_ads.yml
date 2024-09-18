@@ -77,11 +77,11 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'
 
@@ -174,11 +174,11 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'
 
@@ -274,11 +274,11 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'
 
@@ -374,11 +374,11 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'
 
@@ -475,11 +475,11 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'
 
@@ -546,10 +546,10 @@ models:
       - name: spend
         description: '{{ doc("spend") }}'
       - name: conversions
-        description: '{{ doc("conversions_stg") }}'
+        description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
       - name: all_conversions
-        description: '{{ doc("all_conversions_stg") }}'
+        description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
         description: '{{ doc("all_revenue") }}'

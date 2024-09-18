@@ -83,43 +83,36 @@ The number of clicks that occurred by the grain of the report.
 {% enddocs %}
 
 {% docs conversions_qualified %}
-Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true.
+Number of [conversions](https://learn.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-13#conversionsqualified), measured by completion of an action by a customer after viewing your ad. This will **exclude** any conversions where the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads is set to true.
 {% enddocs %}
 
 {% docs conversions %}
-Number of conversions, measured by completion of an action by a customer after viewing your ad. 
+Number of conversions, measured by completion of an action by a customer after viewing your ad. This will **exclude** any conversions where the convesion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads is set to true. This field coalesces the source `conversions_qualifed` and `conversions` fields, and will be 0 if both are null.
 {% enddocs %}
 
 {% docs conversions_src %}
-Number of conversions, measured by completion of an action by a customer after viewing your ad. This will exclude any conversions where the ExcludeFromBidding property is set to true. This column is deprecated as of 2022, so it's recommended to use `conversions_qualified`.
+(Deprecated in 2022 in favor of `conversions_qualified`) Number of conversions, measured by completion of an action by a customer after viewing your ad. This will **exclude** any conversions where the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads is set to true.
 {% enddocs %}
 
-{% docs conversions_stg %}
-Number of conversions, measured by completion of an action by a customer after viewing your ad. This value will default to `conversions_qualified` if synced in your models. If it doesn't exist, this value will default to `conversions` if synced in your models. If it doesn't exist, this value will be 0.
-{% enddocs %}
- 
 {% docs revenue %}
-The revenue optionally reported by the advertiser as a result of the `conversions` figure.
+The revenue optionally reported by the advertiser as a result of the `conversions` figure. This will **exclude** revenue from conversions in which the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads is set to true.
 {% enddocs %}
 
 {% docs all_conversions %}
-Number of all conversions, measured by completion of an action by a customer after viewing your ad.
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This will **include** data from conversions regardless of the value of the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads. This field coalesces the source `all_conversions_qualifed` and `all_conversions` fields, and will be 0 if both are null.
 {% enddocs %}
 
 {% docs all_conversions_qualified %}
-Number of all conversions, measured by completion of an action by a customer after viewing your ad. This includes data from all conversions goals regardless of their ExcludeFromBidding setting.
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This will **include** data from conversions regardless of the value of the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads.
 {% enddocs %}
 
 {% docs all_conversions_src %}
-Number of all conversions, measured by completion of an action by a customer after viewing your ad. This includes data from all conversions goals regardless of their ExcludeFromBidding setting. This column is deprecated as of 2022, so it's recommended to use `all_conversions_qualified`.
-{% enddocs %}
-
-{% docs all_conversions_stg %}
-Number of all conversions, measured by completion of an action by a customer after viewing your ad. This value will default to `all_conversions_qualified` if synced in your models. If it doesn't exist, this value will default to `all_conversions` if synced in your models. If it doesn't exist, this value will be 0.
+(Deprecated in 2022 in favor of `conversions_qualified`)
+Number of all conversions, measured by completion of an action by a customer after viewing your ad. This will **include** revenue from conversions regardless of the value of the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads.
 {% enddocs %}
 
 {% docs all_revenue %}
-The revenue optionally reported by the advertiser as a result of the `all_conversions` figure.
+The revenue reported by the advertiser as a result of the `all_conversions` figure. This will **include** revenue from conversions regardless of the value of the conversion goal's [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) property in Microsoft Ads.
 {% enddocs %}
 
 {% docs currency_code %}

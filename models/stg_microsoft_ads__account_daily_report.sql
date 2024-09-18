@@ -42,11 +42,12 @@ final as (
         coalesce(clicks, 0) as clicks, 
         coalesce(impressions, 0) as impressions,
         coalesce(spend, 0) as spend,
-        coalesce(coalesce(conversions_qualified, conversions), 0) as conversions,
-        coalesce(revenue, 0) as conversions_value,
-        coalesce(all_conversions_qualified, 0) as all_conversions   
+        coalesce(coalesce(cast(conversions_qualified as {{ dbt.type_int() }}), cast(conversions as {{ dbt.type_int() }})), 0) as conversions,
+        coalesce(cast(revenue as {{ dbt.type_float() }}), 0) as conversions_value,
+        coalesce(cast(all_conversions_qualified as {{ dbt.type_int() }}), 0) as all_conversions   
+        -- this report does not have an all_revenue or an all_conversions field
 
-        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified']) }}
 
     from fields
 )
