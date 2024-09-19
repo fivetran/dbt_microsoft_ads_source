@@ -7,10 +7,10 @@
   - `conversions_value`: The `revenue` reported by the advertiser and attributed to conversions.
   - `all_conversions`: Number of *[all](https://learn.microsoft.com/en-us/advertising/reporting-service/conversionperformancereportcolumn?view=bingads-13#allconversions)* conversions, measured by completion of an action by a customer after viewing your ad. This will default to `all_conversions_qualified` if synced (recommended), but will coalesce with the now-deprecated `all_conversions` field. This field differs from the default `conversions` field in that it includes conversions associated with a conversion goal in which the [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) Microsoft Ads property is set to `true`.
   - `all_conversions_value` (not in `stg_microsoft_ads__account_daily_report`): The `revenue` reported by the advertiser and attributed to *all* conversions. This field differs from the default `conversions_value` field in that it includes revenue associated with a conversion goal in which the [ExcludeFromBidding](https://learn.microsoft.com/en-us/advertising/campaign-management-service/conversiongoal?view=bingads-13#excludefrombidding) Microsoft Ads property is set to `true`.
+> The above new field additions are **breaking changes**.
 
 ## Under the Hood 
 - Created `microsoft_ads_fill_pass_through_columns` and `microsoft_ads_add_pass_through_columns` macros to ensure that the new conversion fields are backwards compatible with users who have already included them via [passthrough columns](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#passing-through-additional-metrics).
-> The above new field additions are **breaking changes** for users who were not already bringing in conversion fields via passthrough columns.
 - Updated seed files with new fields to test and validate on local data, provided specific casting to numeric (for currency) and integers.
 - We've coalesced metrics in each `stg_microsoft_ads__<entity>_daily_report` model with `0` to avoid any potential null values that could disrupt aggregate calculations [in the `dbt_microsoft_ads` transformation package](https://github.com/fivetran/dbt_microsoft_ads).
 

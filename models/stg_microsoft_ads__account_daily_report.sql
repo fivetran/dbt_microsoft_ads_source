@@ -47,7 +47,7 @@ final as (
         coalesce(cast(all_conversions_qualified as {{ dbt.type_int() }}), 0) as all_conversions   
         -- this report does not have an all_revenue or an all_conversions field
 
-        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified']) }}
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__account_passthrough_metrics'), except=['conversions', 'conversions_value', 'all_conversions']) }}
 
     from fields
 )

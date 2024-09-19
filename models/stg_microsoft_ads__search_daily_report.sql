@@ -52,7 +52,7 @@ final as (
         -- sometimes this field comes in as a string
         coalesce(cast(replace(cast(all_revenue as {{ dbt.type_string() }}), ',', '') as {{ dbt.type_float() }}), 0) as all_conversions_value
 
-        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__search_passthrough_metrics'), except=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__search_passthrough_metrics'), except=['conversions', 'conversions_value', 'all_conversions', 'all_conversions_value']) }}
 
     from fields
 )
