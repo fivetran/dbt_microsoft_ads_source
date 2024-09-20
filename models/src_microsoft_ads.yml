@@ -68,11 +68,7 @@ sources:
           - name: revenue
             description: '{{ doc("revenue") }}'
           - name: all_conversions_qualified
-            description: '{{ doc("all_conversions_qualified") }}'
-          - name: all_conversions
-            description: '{{ doc("all_conversions_src") }}'
-          - name: all_revenue
-            description: '{{ doc("all_revenue") }}'     
+            description: '{{ doc("all_conversions_qualified") }}' 
       
       - name: ad_group_history
         identifier: "{{ var('microsoft_ads_ad_group_history_identifier', 'ad_group_history') }}"
