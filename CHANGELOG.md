@@ -1,7 +1,7 @@
 # dbt_microsoft_ads_source v0.10.0
 [PR #32](https://github.com/fivetran/dbt_microsoft_ads_source/pull/32) includes the following updates:
 
-## Feature Updates: Conversion Support!
+## Feature Updates: Conversion Metrics
 - We have added the following source fields to each `stg_microsoft_ads__<entity>_daily_report` model:
   - `conversions`: Number of conversions, measured by completion of an action by a customer after viewing your ad. This will default to `conversions_qualified` if synced (recommended), but will coalesce with the now-deprecated `conversions` field.
   - `conversions_value`: The `revenue` reported by the advertiser and attributed to conversions.
