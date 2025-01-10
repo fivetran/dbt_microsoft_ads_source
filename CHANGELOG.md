@@ -1,3 +1,8 @@
+# dbt_microsoft_ads_source version.version
+
+## Documentation
+- Corrected references to connectors and connections in the README. ([#36](https://github.com/fivetran/dbt_microsoft_ads_source/pull/36))
+
 # dbt_microsoft_ads_source v0.10.0
 [PR #32](https://github.com/fivetran/dbt_microsoft_ads_source/pull/32) includes the following updates:
 
