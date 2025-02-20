@@ -30,7 +30,7 @@ final as (
     select
         source_relation, 
         id as ad_id,
-        title_part_1 as ad_name,
+        {{ var('microsoft_ads__ad_name_selector') }} as ad_name,
         final_url,
         ad_group_id,
         modified_time as modified_at,
