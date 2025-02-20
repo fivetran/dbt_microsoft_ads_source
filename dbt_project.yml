@@ -1,6 +1,6 @@
 name: 'microsoft_ads_source'
 version: '0.10.0'
-
+profile: 'default'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
@@ -16,6 +16,7 @@ vars:
     keyword_history: "{{ source('microsoft_ads','keyword_history') }}"
     keyword_performance_daily_report: "{{ source('microsoft_ads', 'keyword_performance_daily_report') }}"
     search_performance_daily_report: "{{ source('microsoft_ads', 'search_query_performance_daily_report') }}"
+  microsoft_ads__ad_name_selector: title_part_1
   microsoft_ads__account_passthrough_metrics: []
   microsoft_ads__campaign_passthrough_metrics: []
   microsoft_ads__ad_group_passthrough_metrics: []
