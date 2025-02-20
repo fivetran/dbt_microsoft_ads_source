@@ -1,5 +1,10 @@
 # dbt_microsoft_ads_source version.version
 
+## Feature Updates:
+
+- Added a new variable `microsoft_ads_source__ad_name_selector` which can be used to change the way `ad_name` is determined in `stg_microsoft_ads__ad_history`
+- Added additional columns to `get_ad_history_columns()` so that they are available to be used in the ad name selector
+
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#36](https://github.com/fivetran/dbt_microsoft_ads_source/pull/36))
 
