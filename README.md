@@ -116,6 +116,17 @@ vars:
     microsoft_ads_<default_source_table_name>_identifier: your_table_name 
 ```
 
+#### Change the way ad_name is determined
+
+Depending on how Microsoft Ads are configured, users may wish to use a different column than the default `title_part_1` or a combinations of columns to generate the ad_name as shown in the `AD_HISTORY` table.
+
+The example below would prefer to use `title_part_2`, but use `title_part_1` as a fallback if the former is `null`.
+
+```yml
+vars:
+    microsoft_ads__ad_name_selector: coalesce(title_part_2, title_part_1)
+```
+
 </details>
 
 ### (Optional) Step 5: Orchestrate your models with Fivetran Transformations for dbt Core™
