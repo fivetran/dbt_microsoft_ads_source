@@ -23,7 +23,7 @@ The status of this ad group; see the following [documentation](https://help.ads.
 {% enddocs %}
 
 {% docs ad_name %}
-The name of the corresponding ad; `title_part_1` is used as the ad name as a proxy as one is not provided by the data source.
+The name of the corresponding ad; `title_part_1` is used as the default ad name.
 {% enddocs %}
 
 {% docs ad_group_id %}
