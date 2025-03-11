@@ -202,3 +202,23 @@ The position of the ad associated with this record. For more information, refer 
 {% docs source_relation %}
 The source of the record if the unioning functionality is being used. If not this field will be empty.
 {% enddocs %}
+
+{% docs title %}
+The title of the ad.
+{% enddocs %}
+
+{% docs title_part_1 %}
+Part 1 of the title.
+{% enddocs %}
+
+{% docs title_part_2 %}
+Part 2 of the title.
+{% enddocs %}
+
+{% docs title_part_3 %}
+Part 3 of the title.
+{% enddocs %}
+
+{% docs domain %}
+The associated domain that the ad links to.
+{% enddocs %}
