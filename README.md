@@ -46,7 +46,7 @@ If you  are **not** using the [Microsoft Ads transformation package](https://git
 ```yaml
 packages:
   - package: fivetran/microsoft_ads_source
-    version: [">=0.10.0", "<0.11.0"]
+    version: [">=0.11.0", "<0.12.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `microsoft_ads` schema. If this is not where your Microsoft Ads data is (for example, if your microsoft_ads schema is named `microsoft_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
