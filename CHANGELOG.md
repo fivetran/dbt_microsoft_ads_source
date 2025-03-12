@@ -8,6 +8,7 @@
   - `title_part_2`
   - `title_part_3`
   - `domain`
+- For more information on these fields, refer to the [docs](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__ad_history).
 
 ## Feature Updates:
 - Introduced a new variable `microsoft_ads__ad_name_selector` to allow for `ad_name` in `stg_microsoft_ads__ad_history` to be customizable. By default `ad_name` is created from `title_part_1`, but you may override this by including the configuration shown below in your `dbt_project.yml` file. For more information, refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source/blob/main/README.md#change-how-ad-name-is-determined).
