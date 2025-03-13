@@ -23,7 +23,7 @@ The status of this ad group; see the following [documentation](https://help.ads.
 {% enddocs %}
 
 {% docs ad_name %}
-The name of the corresponding ad; `title_part_1` is used as the ad name as a proxy as one is not provided by the data source.
+The name of the corresponding ad; `title_part_1` is used as the default ad name but you may customize this by using the `microsoft_ads__ad_name_selector` variable. For more information, refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source/blob/main/README.md#change-how-ad-name-is-determined).
 {% enddocs %}
 
 {% docs ad_group_id %}
@@ -201,4 +201,24 @@ The position of the ad associated with this record. For more information, refer 
 
 {% docs source_relation %}
 The source of the record if the unioning functionality is being used. If not this field will be empty.
+{% enddocs %}
+
+{% docs title %}
+The title of the ad.
+{% enddocs %}
+
+{% docs title_part_1 %}
+Part 1 of the title.
+{% enddocs %}
+
+{% docs title_part_2 %}
+Part 2 of the title.
+{% enddocs %}
+
+{% docs title_part_3 %}
+Part 3 of the title.
+{% enddocs %}
+
+{% docs domain %}
+The associated domain that the ad links to.
 {% enddocs %}

@@ -208,6 +208,18 @@ models:
         description: '{{ doc("ad_status") }}'
       - name: type
         description: '{{ doc("ad_type") }}'
+      - name: title
+        description: '{{ doc("title") }}'
+      - name: title_part_1
+        description: '{{ doc("title_part_1") }}'
+      - name: title_part_2
+        description: '{{ doc("title_part_2") }}'
+      - name: title_part_3
+        description: '{{ doc("title_part_3") }}'
+      - name: final_url
+        description: '{{ doc("final_url") }}'
+      - name: domain
+        description: '{{ doc("domain") }}'
       - name: is_most_recent_record
         description: '{{ doc("is_most_recent_record") }}'
 

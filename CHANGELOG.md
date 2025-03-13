@@ -1,7 +1,29 @@
-# dbt_microsoft_ads_source version.version
+# dbt_microsoft_ads_source v0.11.0
+[PR #39](https://github.com/fivetran/dbt_microsoft_ads_source/pull/39) includes the following changes:
+
+## Breaking Changes:
+- Updated `stg_microsoft_ads__ad_history` to include more name-related fields:
+  - `title`
+  - `title_part_1`
+  - `title_part_2`
+  - `title_part_3`
+  - `domain`
+- For more information on these fields, refer to the [docs](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__ad_history).
+
+## Feature Updates:
+- Introduced a new variable `microsoft_ads__ad_name_selector` to allow for `ad_name` in `stg_microsoft_ads__ad_history` to be customizable. By default `ad_name` is created from `title_part_1`, but you may override this by including the configuration shown below in your `dbt_project.yml` file. For more information, refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source/blob/main/README.md#change-how-ad-name-is-determined).
+
+```yml
+vars:
+    microsoft_ads__ad_name_selector: coalesce(title_part_2, title_part_1) # using `title_part_2`, with `title_part_1` as a fallback if the former is `null`.
+```
+
+## Under the Hood
+- Updated the `ad_history` seed data, `get_account_history_columns`, `src_microsoft_ads.yml`, and `stg_microsoft_ads.yml` files with the new fields.
 
 ## Documentation
 - Corrected references to connectors and connections in the README. ([#36](https://github.com/fivetran/dbt_microsoft_ads_source/pull/36))
+- Updated License
 
 # dbt_microsoft_ads_source v0.10.0
 [PR #32](https://github.com/fivetran/dbt_microsoft_ads_source/pull/32) includes the following updates:
