@@ -1,0 +1,122 @@
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+
+with base as (
+
+    select * 
+    from {{ ref('stg_microsoft_ads__geographic_daily_report_tmp') }}
+),
+
+fields as (
+
+    select
+        {{
+            fivetran_utils.fill_staging_columns(
+                source_columns=adapter.get_columns_in_relation(ref('stg_microsoft_ads__geographic_daily_report_tmp')),
+                staging_columns=get_geographic_daily_report_columns()
+            )
+        }}
+        
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='microsoft_ads_union_schemas', 
+            union_database_variable='microsoft_ads_union_databases') 
+        }}
+
+    from base
+),
+
+final as (
+
+    select
+        source_relation,
+        date as date_day,
+        account_id,
+        campaign_id,
+        ad_group_id,
+        country,
+        state,
+        county,
+        postal_code,
+        city,
+        metro_area,
+        location_type,
+        most_specific_location,
+        currency_code,
+        device_os,
+        device_type,
+        network,
+        language,
+        ad_distribution,
+        bid_match_type,
+        delivered_match_type,
+        top_vs_other,
+        coalesce(clicks, 0) as clicks, 
+        coalesce(impressions, 0) as impressions,
+        coalesce(spend, 0) as spend,
+        coalesce(coalesce(cast(conversions_qualified as {{ dbt.type_int() }}), cast(conversions as {{ dbt.type_int() }})), 0) as conversions,
+        coalesce(cast(revenue as {{ dbt.type_float() }}), 0) as conversions_value,
+        coalesce(coalesce(cast(all_conversions_qualified as {{ dbt.type_int() }}), cast(all_conversions as {{ dbt.type_int() }})), 0) as all_conversions,
+        -- sometimes this field comes in as a string
+        coalesce(cast(replace(cast(all_revenue as {{ dbt.type_string() }}), ',', '') as {{ dbt.type_float() }}), 0) as all_conversions_value
+
+        {{ microsoft_ads_fill_pass_through_columns(pass_through_fields=var('microsoft_ads__geographic_passthrough_metrics'), except=['conversions', 'conversions_value', 'all_conversions', 'all_conversions_value']) }}
+
+
+        _fivetran_id,
+        _fivetran_synced,
+        absolute_top_impression_rate_percent,
+        account_id,
+        account_name,
+        account_number,
+        account_status,
+        ad_distribution,
+        ad_group_id,
+        ad_group_name,
+        ad_group_status,
+        all_conversion_rate,
+        all_cost_per_conversion,
+        all_return_on_ad_spend,
+        all_revenue_per_conversion,
+        assists,
+        average_cpc,
+        average_cpm,
+        average_position,
+        base_campaign_id,
+        bid_match_type,
+        campaign_id,
+        campaign_name,
+        campaign_status,
+        campaign_type,
+        city,
+        conversion_rate,
+        cost_per_conversion,
+        county,
+        ctr,
+        currency_code,
+        delivered_match_type,
+        device_os,
+        device_type,
+        goal,
+        goal_type,
+        language,
+        location_id,
+        location_type,
+        metro_area,
+        most_specific_location,
+        neighborhood,
+        network,
+        postal_code,
+        radius,
+        return_on_ad_spend,
+        revenue,
+        revenue_per_conversion,
+        state,
+        top_impression_rate_percent,
+        
+        view_through_conversions,
+        view_through_revenue
+    from fields
+)
+
+select *
+from final
