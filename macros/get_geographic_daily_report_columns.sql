@@ -1,4 +1,4 @@
-{% macro get_geographic_performance_daily_report_columns() %}
+{% macro get_geographic_daily_report_columns() %}
 
 {% set columns = [
     {"name": "_fivetran_id", "datatype": dbt.type_string()},

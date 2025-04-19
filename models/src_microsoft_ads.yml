@@ -415,3 +415,8 @@ sources:
             description: '{{ doc("all_conversions_src") }}'
           - name: all_revenue
             description: '{{ doc("all_revenue") }}'
+
+      - name: geographic_performance_daily_report
+        identifier: "{{ var('microsoft_ads_geographic_history_identifier', 'geographic_performance_daily_report') }}"
+        description: Each record in this table represents the daily performance by geographic metrics.
+ 
