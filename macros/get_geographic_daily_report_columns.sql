@@ -33,7 +33,7 @@
     {"name": "revenue", "datatype": dbt.type_float()}
 ] %}
 
-{{ microsoft_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('microsoft_ads__geographic_passthrough_metrics'), except_fields=['conversions_qualified', 'conversions', 'revenue', 'all_conversions_qualified', 'all_conversions', 'all_revenue']) }}
+{{ microsoft_ads_add_pass_through_columns(base_columns=columns, pass_through_fields=var('microsoft_ads__geographic_passthrough_metrics')) }}
 
 {{ return(columns) }}
 
