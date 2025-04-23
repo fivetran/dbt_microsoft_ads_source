@@ -46,6 +46,18 @@ The ad type associated with this record; see the following [documentation](https
 The bid match type associated with this record; values include 'Broad', 'Exact', 'Phrase'.
 {% enddocs %}
 
+{% docs budget %}
+The amount to spend daily across all campaigns that share the budget.
+{% enddocs %}
+
+{% docs budget_id %}
+The unique Microsoft Advertising identifier of the budget.
+{% enddocs %}
+
+{% docs budget_type %}
+The budget type determines the pace at which the budget is spent throughout the day.
+{% enddocs %}
+
 {% docs budget_association_status %}
 Indicates whether or not the campaign is currently spending from the budget mentioned in the BudgetName column. The possible values are `Current` and `Ended`.
 {% enddocs %}
@@ -221,4 +233,38 @@ Part 3 of the title.
 
 {% docs domain %}
 The associated domain that the ad links to.
+{% enddocs %}
+
+{% docs city %}
+The city where the user was physically located when they clicked the ad.
+{% enddocs %}
+
+{% docs county %}
+The county where the user was physically located when they clicked the ad.
+{% enddocs %}
+
+{% docs country %}
+The country or region where the user was physically located when they clicked the ad.
+{% enddocs %}
+
+{% docs location_type %}
+The location type used to deliver ads. Values include "Physical location" and "Location of interest". 
+
+"Physical location" indicates the user was in the corresponding City, Country, MetroArea, or State. "Location of interest" indicates the user was searching for or viewing pages about the location.
+{% enddocs %}
+
+{% docs metro_area %}
+The metro area (Microsoft Market Area in the United States) where the user was physically located when they clicked the ad.
+{% enddocs %}
+
+{% docs most_specific_location %}
+The most specific location used to deliver ads. If postal code is available, it is prioritized; otherwise, it may match city or country/region.
+{% enddocs %}
+
+{% docs postal_code %}
+The postal code where the user was physically located when they clicked the ad.
+{% enddocs %}
+
+{% docs state %}
+The state where the user was physically located when they clicked the ad.
 {% enddocs %}

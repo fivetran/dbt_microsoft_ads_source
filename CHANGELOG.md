@@ -1,3 +1,24 @@
+# dbt_microsoft_ads_source v0.12.0
+
+## Feature Update: New Geographic Daily Report Model
+- We have created the `stg_microsoft_ads__geographic_daily_report` to bring in daily location based ad data. 
+- This new staging model flows downstream into the [v0.11.0 release](https://github.com/fivetran/dbt_microsoft_ads/releases/tag/v0.11.0) of the `dbt_microsoft_ads` package into the net new following models at the campaign level grain: 
+  - `microsoft_ads__campaign_country_report`
+  - `microsoft_ads__campaign_region_report`
+
+## Breaking Changes
+- We updated `stg_microsoft_ads__campaign_history` to bring in new fields to include in the downstream geographic reports.
+  - `budget`
+  - `budget_id`
+  - `budget_type`
+  - `language`
+
+## Under the Hood
+- Updated seeds configuration to fix runtime warnings.
+
+## Documentation Update
+- Added yml documentation for net-new models and columns.
+
 # dbt_microsoft_ads_source v0.11.0
 [PR #39](https://github.com/fivetran/dbt_microsoft_ads_source/pull/39) includes the following changes:
 

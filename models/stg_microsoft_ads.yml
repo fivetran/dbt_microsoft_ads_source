@@ -322,6 +322,15 @@ models:
         description: '{{ doc("campaign_status") }}'
       - name: is_most_recent_record
         description: '{{ doc("is_most_recent_record") }}'
+      - name: budget
+        description: '{{ doc("budget") }}'
+      - name: budget_id
+        description: '{{ doc("budget_id") }}'
+      - name: budget_type
+        description: '{{ doc("budget_type") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+
 
   - name: stg_microsoft_ads__campaign_daily_report
     identifier: "{{ var('microsoft_ads_campaign_daily_report_identifier', 'campaign_performance_daily_report') }}"
@@ -559,6 +568,93 @@ models:
         description: '{{ doc("conversions") }}'
       - name: conversions_value
         description: '{{ doc("revenue") }}' 
+      - name: all_conversions
+        description: '{{ doc("all_conversions") }}'
+      - name: all_conversions_value
+        description: '{{ doc("all_revenue") }}'
+
+  - name: stg_microsoft_ads__geographic_daily_report
+    identifier: "{{ var('microsoft_ads_geographic_history_identifier', 'geographic_performance_daily_report') }}"
+    description: Each record in this table represents the daily performance segmented by geographic location and related attributes.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - source_relation
+            - date_day
+            - account_id
+            - campaign_id
+            - ad_group_id
+            - country
+            - state
+            - county
+            - postal_code
+            - city
+            - metro_area
+            - location_type
+            - most_specific_location
+            - device_os
+            - device_type
+            - network
+            - language
+            - ad_distribution
+            - bid_match_type
+            - delivered_match_type
+            - top_vs_other
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: date_day
+        description: '{{ doc("date_day") }}'
+      - name: account_id
+        description: '{{ doc("account_id") }}'
+      - name: campaign_id
+        description: '{{ doc("campaign_id") }}'
+      - name: ad_group_id
+        description: '{{ doc("ad_group_id") }}'
+      - name: country
+        description: '{{ doc("country") }}'
+      - name: state
+        description: '{{ doc("state") }}'
+      - name: county
+        description: '{{ doc("county") }}'
+      - name: postal_code
+        description: '{{ doc("postal_code") }}'
+      - name: city
+        description: '{{ doc("city") }}'
+      - name: metro_area
+        description: '{{ doc("metro_area") }}'
+      - name: location_type
+        description: '{{ doc("location_type") }}'
+      - name: most_specific_location
+        description: '{{ doc("most_specific_location") }}'
+      - name: currency_code
+        description: '{{ doc("currency_code") }}'
+      - name: device_os
+        description: '{{ doc("device_os") }}'
+      - name: device_type
+        description: '{{ doc("device_type") }}'
+      - name: network
+        description: '{{ doc("network") }}'
+      - name: language
+        description: '{{ doc("language") }}'
+      - name: ad_distribution
+        description: '{{ doc("ad_distribution") }}'
+      - name: bid_match_type
+        description: '{{ doc("bid_match_type") }}'
+      - name: delivered_match_type
+        description: '{{ doc("delivered_match_type") }}'
+      - name: top_vs_other
+        description: '{{ doc("top_vs_other") }}'
+      - name: clicks
+        description: '{{ doc("clicks") }}'
+      - name: impressions
+        description: '{{ doc("impressions") }}'
+      - name: spend
+        description: '{{ doc("spend") }}'
+      - name: conversions
+        description: '{{ doc("conversions") }}'
+      - name: conversions_value
+        description: '{{ doc("revenue") }}'
       - name: all_conversions
         description: '{{ doc("all_conversions") }}'
       - name: all_conversions_value
