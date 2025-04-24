@@ -24,6 +24,7 @@ vars:
   microsoft_ads__keyword_passthrough_metrics: []
   microsoft_ads__search_passthrough_metrics: []
   microsoft_ads__geographic_passthrough_metrics: []
+
 models:
   microsoft_ads_source:
     +schema: microsoft_ads_source

@@ -145,6 +145,8 @@ seeds:
         all_conversions_qualified: "integer"
         all_conversions: "integer"
         all_revenue: "numeric"
+  +docs:
+    show: false
 
 dispatch:
   - macro_namespace: dbt_utils

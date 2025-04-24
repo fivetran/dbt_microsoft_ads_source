@@ -1,5 +1,21 @@
 # dbt_microsoft_ads_source v0.12.0
 
+
+## Schema Changes
+**3 total changes • 0 possible breaking changes
+| Table/Column                                      | Change Type | Old Name | New Name                                  | Notes                                                             |
+|---------------------------------------------------|-------------|----------|-------------------------------------------|-------------------------------------------------------------------|
+| stg_microsoft_ads__geographic_daily_report_tmp       | New Model   |          |  | Temp model added for `geographic_performance_daily_report`.               |
+| stg_microsoft_ads__geographic_daily_report          | New Model   |          |    | Staging model added for `geographic_performance_daily_report`.         |
+| budget, budget_id, budget_type, language           | New Columns   |          |    | New columns added to the stg_microsoft_ads__campaign_history model.         |
+
+
+## Feature Updates
+- Added the `geographic_performance_daily_report` source table and downstream staging models. See above for schema change details and new models added.
+  - For dbt Core users: This table is disabled by default. If you do not sync this table or would like to enable these new models, you can enable the models by setting the  `microsoft_ads__using_geographic_daily_report` variable to `true` in your `dbt_project.yml` file (`false` by default).
+- Included the `microsoft_ads__geographic_passthrough_metrics` passthrough variable in the above mentioned new staging models. Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#passing-through-additional-metrics) for more details.
+- Introduced the above mentioned new columns to the `stg_microsoft_ads__campaign_history` model.
+
 ## Feature Update: New Geographic Daily Report Model
 - We have created the `stg_microsoft_ads__geographic_daily_report` to bring in daily location based ad data. 
 - This new staging model flows downstream into the [v0.11.0 release](https://github.com/fivetran/dbt_microsoft_ads/releases/tag/v0.11.0) of the `dbt_microsoft_ads` package into the net new following models at the campaign level grain: 

@@ -1,4 +1,4 @@
-{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True)) }}
+{{ config(enabled=var('ad_reporting__microsoft_ads_enabled', True) and var('microsoft_ads__using_geographic_daily_report', False)) }}
 
 with base as (
 
