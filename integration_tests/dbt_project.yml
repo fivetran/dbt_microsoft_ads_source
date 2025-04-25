@@ -20,7 +20,7 @@ vars:
   microsoft_ads_geographic_performance_daily_report_identifier: "microsoft_ads_geographic_performance_daily_report_data"
 
   ## Use when generating docs
-  ## microsoft_ads__using_geographic_daily_report: true 
+  microsoft_ads__using_geographic_daily_report: true 
 
 seeds:
   microsoft_ads_source_integration_tests:
@@ -102,6 +102,7 @@ seeds:
         account_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
         campaign_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
         ad_group_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
+        location_id: "{{ 'INT64' if target.type == 'bigquery' else 'bigint' }}"
         clicks: "integer"
         impressions: "integer"
         spend: "numeric"
