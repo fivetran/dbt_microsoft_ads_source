@@ -50,6 +50,7 @@ final as (
         bid_match_type,
         delivered_match_type,
         top_vs_other,
+        goal,
         coalesce(clicks, 0) as clicks, 
         coalesce(impressions, 0) as impressions,
         coalesce(spend, 0) as spend,

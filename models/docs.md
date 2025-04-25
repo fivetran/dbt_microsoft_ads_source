@@ -247,6 +247,11 @@ The county where the user was physically located when they clicked the ad.
 The country or region where the user was physically located when they clicked the ad.
 {% enddocs %}
 
+{% docs goal %}
+The name of the goal you set for the conversions you want, meaning actions customers take after clicking your ad.
+{% enddocs %}
+
+
 {% docs location_type %}
 The location type used to deliver ads. Values include "Physical location" and "Location of interest". 
 

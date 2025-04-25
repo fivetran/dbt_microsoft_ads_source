@@ -468,6 +468,8 @@ sources:
             description: '{{ doc("device_os") }}'
           - name: device_type
             description: '{{ doc("device_type") }}'
+          - name: goal
+            description: '{{ doc("goal") }}'
           - name: impressions
             description: '{{ doc("impressions") }}'
           - name: language

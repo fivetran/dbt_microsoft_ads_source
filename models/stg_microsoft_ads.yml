@@ -600,6 +600,7 @@ models:
             - bid_match_type
             - delivered_match_type
             - top_vs_other
+            - goal
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -645,6 +646,8 @@ models:
         description: '{{ doc("delivered_match_type") }}'
       - name: top_vs_other
         description: '{{ doc("top_vs_other") }}'
+      - name: goal
+        description: '{{ doc("goal") }}'
       - name: clicks
         description: '{{ doc("clicks") }}'
       - name: impressions

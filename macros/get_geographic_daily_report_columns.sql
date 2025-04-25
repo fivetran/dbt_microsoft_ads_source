@@ -20,6 +20,7 @@
     {"name": "delivered_match_type", "datatype": dbt.type_string()},
     {"name": "device_os", "datatype": dbt.type_string()},
     {"name": "device_type", "datatype": dbt.type_string()},
+    {"name": "goal", "datatype": dbt.type_string()},
     {"name": "impressions", "datatype": dbt.type_int()},
     {"name": "language", "datatype": dbt.type_string()},
     {"name": "location_type", "datatype": dbt.type_string()},
