@@ -590,6 +590,7 @@ models:
             - postal_code
             - city
             - metro_area
+            - location_Id
             - location_type
             - most_specific_location
             - device_os
@@ -648,6 +649,8 @@ models:
         description: '{{ doc("top_vs_other") }}'
       - name: goal
         description: '{{ doc("goal") }}'
+      - name: location_id 
+        description: '{{ doc("location_id") }}'
       - name: clicks
         description: '{{ doc("clicks") }}'
       - name: impressions

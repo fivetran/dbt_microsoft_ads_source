@@ -23,6 +23,7 @@
     {"name": "goal", "datatype": dbt.type_string()},
     {"name": "impressions", "datatype": dbt.type_int()},
     {"name": "language", "datatype": dbt.type_string()},
+    {"name": "location_id", "datatype": dbt.type_int()},
     {"name": "location_type", "datatype": dbt.type_string()},
     {"name": "metro_area", "datatype": dbt.type_string()},
     {"name": "most_specific_location", "datatype": dbt.type_string()},

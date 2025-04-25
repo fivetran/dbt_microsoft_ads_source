@@ -39,6 +39,7 @@ final as (
         postal_code,
         city,
         metro_area,
+        location_id,
         location_type,
         most_specific_location,
         currency_code,
