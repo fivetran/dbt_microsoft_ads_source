@@ -74,7 +74,7 @@ vars:
 To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
 
 #### Enable Country Reports
-This package leverages the `geographic_performance_daily_report` table to help report on ad and campaign performance by country. However, if you are not actively syncing this report from your Microsoft Ads connection, you may disable the transformations for the `geographic_performance_daily_report` by adding the following variable configuration to your root `dbt_project.yml` file:
+This package leverages the `geographic_performance_daily_report` table to help report on ad and campaign performance by country, but this table is disabled by default for dbt Core users. If you are actively syncing this report from your Microsoft Ads connection, you may enable the transformations for the `geographic_performance_daily_report` by adding the following variable configuration to your root `dbt_project.yml` file:
 ```yml
 vars:
     microsoft_ads__using_geographic_daily_report: True # False by default

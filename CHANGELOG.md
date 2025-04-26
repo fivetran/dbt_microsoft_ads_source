@@ -1,5 +1,5 @@
 # dbt_microsoft_ads_source v0.12.0
-
+[PR #40](https://github.com/fivetran/dbt_microsoft_ads_source/pull/40) includes the following changes:
 
 ## Schema Changes
 **3 total changes • 0 possible breaking changes
@@ -11,9 +11,8 @@
 
 ## Feature Updates
 - Added the `geographic_performance_daily_report` source table and downstream staging models. See above for schema change details and new models added.
-  - For dbt Core users: This table is disabled by default. If you do not sync this table or would like to enable these new models, you can enable the models by setting the  `microsoft_ads__using_geographic_daily_report` variable to `true` in your `dbt_project.yml` file (`false` by default).
+  - For dbt Core users: This table is disabled by default. If you do not sync this table or would like to enable these new models, you can enable the models by setting the  `microsoft_ads__using_geographic_daily_report` variable to `true` in your `dbt_project.yml` file (`false` by default). Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#enable-country-reports) for more details. 
 - Included the `microsoft_ads__geographic_passthrough_metrics` passthrough variable in the above mentioned new staging models. Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#passing-through-additional-metrics) for more details.
-- Introduced the above mentioned new columns to the `stg_microsoft_ads__campaign_history` model.
 
 # dbt_microsoft_ads_source v0.11.0
 [PR #39](https://github.com/fivetran/dbt_microsoft_ads_source/pull/39) includes the following changes:
