@@ -2,12 +2,13 @@
 [PR #40](https://github.com/fivetran/dbt_microsoft_ads_source/pull/40) includes the following changes:
 
 ## Schema Changes
-**3 total changes • 0 possible breaking changes
+
+**3 total changes • 0 possible breaking changes**
 | Table/Column                                      | Change Type | Old Name | New Name                                  | Notes                                                             |
 |---------------------------------------------------|-------------|----------|-------------------------------------------|-------------------------------------------------------------------|
 | [stg_microsoft_ads__geographic_daily_report_tmp](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__geographic_daily_report_tmp)        | New Model   |     |  | Temp model added for `geographic_performance_daily_report`.               |
 | [stg_microsoft_ads__geographic_daily_report](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__geographic_daily_report)        | New Model   |          |    | Staging model added for `geographic_performance_daily_report`.         |
-| budget, budget_id, budget_type, language           | New Columns   |          |    | New columns added to the stg_microsoft_ads__campaign_history model.         |
+| budget, budget_id, budget_type, language           | New Columns   |          |    | New columns added to the `stg_microsoft_ads__campaign_history` model.         |
 
 ## Feature Updates
 - Added the `geographic_performance_daily_report` source table and downstream staging models. See above for schema change details and new models added.
