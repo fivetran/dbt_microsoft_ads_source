@@ -274,5 +274,5 @@ The postal code where the user was physically located when they clicked the ad.
 {% enddocs %}
 
 {% docs state %}
-The state where the user was physically located when they clicked the ad.
+The state or geographic region where the user was physically located when they clicked the ad.
 {% enddocs %}

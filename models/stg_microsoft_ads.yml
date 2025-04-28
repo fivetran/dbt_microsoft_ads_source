@@ -585,7 +585,7 @@ models:
             - campaign_id
             - ad_group_id
             - country
-            - state
+            - region
             - county
             - postal_code
             - city
@@ -615,7 +615,7 @@ models:
         description: '{{ doc("ad_group_id") }}'
       - name: country
         description: '{{ doc("country") }}'
-      - name: state
+      - name: region
         description: '{{ doc("state") }}'
       - name: county
         description: '{{ doc("county") }}'
@@ -638,7 +638,7 @@ models:
       - name: network
         description: '{{ doc("network") }}'
       - name: language
-        description: '{{ doc("language") }}'
+        description: The language of the publisher where the ad was shown.
       - name: ad_distribution
         description: '{{ doc("ad_distribution") }}'
       - name: bid_match_type

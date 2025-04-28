@@ -473,7 +473,7 @@ sources:
           - name: impressions
             description: '{{ doc("impressions") }}'
           - name: language
-            description: '{{ doc("language") }}'
+            description: The language of the publisher where the ad was shown.
           - name: location_type
             description: '{{ doc("location_type") }}'
           - name: metro_area

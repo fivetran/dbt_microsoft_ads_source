@@ -34,7 +34,7 @@ final as (
         campaign_id,
         ad_group_id,
         country,
-        state,
+        state as region,
         county,
         postal_code,
         city,
