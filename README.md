@@ -46,7 +46,7 @@ If you  are **not** using the [Microsoft Ads transformation package](https://git
 ```yaml
 packages:
   - package: fivetran/microsoft_ads_source
-    version: [">=0.11.0", "<0.12.0"]
+    version: [">=0.12.0", "<0.13.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `microsoft_ads` schema. If this is not where your Microsoft Ads data is (for example, if your microsoft_ads schema is named `microsoft_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -73,6 +73,13 @@ vars:
 
 To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
 
+#### Enable Geographic Reports
+This package leverages the `geographic_performance_daily_report` table to help report on campaign performance by country and geographic region, but this table is disabled by default for dbt Core users. If you are actively syncing this report from your Microsoft Ads connection, you may enable the transformations for the `geographic_performance_daily_report` by adding the following variable configuration to your root `dbt_project.yml` file:
+```yml
+vars:
+    microsoft_ads__using_geographic_daily_report: True # False by default
+```
+
 #### Passing Through Additional Metrics
 By default, this package will select `clicks`, `impressions`, `spend`, `conversions` (coalesces source `conversions` and `conversions_qualified` fields), `conversions_value` (aliased from `revenue`), `all_conversions` (coalesces source `all_conversions` and `all_conversions_qualified` fields) and `all_conversions_value` (aliased from `all_revenue`) from the source reporting tables to store into the staging models. If you would like to pass through additional metrics to the staging models, add the below configurations to your `dbt_project.yml` file. These variables allow for the pass-through fields to be aliased (`alias`) if desired, but not required. Use the below format for declaring the respective pass-through variables:
 
@@ -97,6 +104,9 @@ vars:
     microsoft_ads__search_passthrough_metrics:
       - name: "unique_string_field"
         alias: "field_id"
+    microsoft_ads__geographic_passthrough_metrics:
+      - name: "unique_string_field"
+        alias: "custom_field_name"
 ```
 
 #### Change how ad name is determined

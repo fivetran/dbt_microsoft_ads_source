@@ -238,6 +238,14 @@ sources:
             description: '{{ doc("time_zone") }}'
           - name: status
             description: '{{ doc("campaign_status") }}'
+          - name: budget
+            description: '{{ doc("budget") }}'
+          - name: budget_id
+            description: '{{ doc("budget_id") }}'
+          - name: budget_type
+            description: '{{ doc("budget_type") }}'
+          - name: language
+            description: '{{ doc("language") }}'
 
       - name: campaign_performance_daily_report
         identifier: "{{ var('microsoft_ads_campaign_performance_daily_report_identifier', 'campaign_performance_daily_report') }}"
@@ -415,3 +423,72 @@ sources:
             description: '{{ doc("all_conversions_src") }}'
           - name: all_revenue
             description: '{{ doc("all_revenue") }}'
+
+      - name: geographic_performance_daily_report
+        identifier: "{{ var('microsoft_ads_geographic_history_identifier', 'geographic_performance_daily_report') }}"
+        description: Each record in this table represents the daily performance by geographic metrics.
+        config:
+          enabled: "{{ var('ad_reporting__microsoft_ads_enabled', true) and var('microsoft_ads__using_geographic_daily_report', false) }}"
+        columns:
+          - name: account_id
+            description: '{{ doc("account_id") }}'
+          - name: ad_distribution
+            description: '{{ doc("ad_distribution") }}'
+          - name: ad_group_id
+            description: '{{ doc("ad_group_id") }}'
+          - name: all_conversions
+            description: '{{ doc("all_conversions") }}'
+          - name: all_conversions_qualified
+            description: '{{ doc("all_conversions_qualified") }}'
+          - name: all_revenue
+            description: '{{ doc("all_revenue") }}'
+          - name: bid_match_type
+            description: '{{ doc("bid_match_type") }}'
+          - name: campaign_id
+            description: '{{ doc("campaign_id") }}'
+          - name: city
+            description: '{{ doc("city") }}'
+          - name: clicks
+            description: '{{ doc("clicks") }}'
+          - name: conversions
+            description: '{{ doc("conversions") }}'
+          - name: conversions_qualified
+            description: '{{ doc("conversions_qualified") }}'
+          - name: country
+            description: '{{ doc("country") }}'
+          - name: county
+            description: '{{ doc("county") }}'
+          - name: currency_code
+            description: '{{ doc("currency_code") }}'
+          - name: date
+            description: '{{ doc("date_day") }}'
+          - name: delivered_match_type
+            description: '{{ doc("delivered_match_type") }}'
+          - name: device_os
+            description: '{{ doc("device_os") }}'
+          - name: device_type
+            description: '{{ doc("device_type") }}'
+          - name: goal
+            description: '{{ doc("goal") }}'
+          - name: impressions
+            description: '{{ doc("impressions") }}'
+          - name: language
+            description: The language of the publisher where the ad was shown.
+          - name: location_type
+            description: '{{ doc("location_type") }}'
+          - name: metro_area
+            description: '{{ doc("metro_area") }}'
+          - name: most_specific_location
+            description: '{{ doc("most_specific_location") }}'
+          - name: network
+            description: '{{ doc("network") }}'
+          - name: postal_code
+            description: '{{ doc("postal_code") }}'
+          - name: spend
+            description: '{{ doc("spend") }}'
+          - name: state
+            description: '{{ doc("state") }}'
+          - name: top_vs_other
+            description: '{{ doc("top_vs_other") }}'
+          - name: revenue
+            description: '{{ doc("revenue") }}'

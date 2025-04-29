@@ -1,3 +1,20 @@
+# dbt_microsoft_ads_source v0.12.0
+[PR #40](https://github.com/fivetran/dbt_microsoft_ads_source/pull/40) includes the following changes:
+
+## Schema Changes
+
+**3 total changes • 0 possible breaking changes**
+| Data Model                                    | Change Type | Old Name | New Name                                  | Notes                                                             |
+|---------------------------------------------------|-------------|----------|-------------------------------------------|-------------------------------------------------------------------|
+| [stg_microsoft_ads__geographic_daily_report_tmp](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__geographic_daily_report_tmp)        | New Model   |     |  | Temp model added for `geographic_performance_daily_report`.               |
+| [stg_microsoft_ads__geographic_daily_report](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__geographic_daily_report)        | New Model   |          |    | Staging model added for `geographic_performance_daily_report`.         |
+| [stg_microsoft_ads__campaign_history](https://fivetran.github.io/dbt_microsoft_ads_source/#!/model/model.microsoft_ads_source.stg_microsoft_ads__campaign_history)        | New Columns   |          |  `budget`, `budget_id`, `budget_type`, `language`    |         |
+
+## Feature Updates
+- Added the `geographic_performance_daily_report` source table and downstream staging models. See above for schema change details and new models added.
+  - For dbt Core users: This table is disabled by default. If you would like to enable these new models, you can do so by setting the  `microsoft_ads__using_geographic_daily_report` variable to `true` in your `dbt_project.yml` file (`false` by default). Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#enable-geographic-reports) for more details. 
+- Included the `microsoft_ads__geographic_passthrough_metrics` passthrough variable in the above mentioned new staging models. Refer to the [README](https://github.com/fivetran/dbt_microsoft_ads_source?tab=readme-ov-file#passing-through-additional-metrics) for more details.
+
 # dbt_microsoft_ads_source v0.11.0
 [PR #39](https://github.com/fivetran/dbt_microsoft_ads_source/pull/39) includes the following changes:
 
