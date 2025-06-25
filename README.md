@@ -20,6 +20,7 @@
 - Materializes [Microsoft Ads staging tables](https://fivetran.github.io/dbt_microsoft_ads_source/#!/overview/microsoft_ads_source/models/?g_v=1&g_e=seeds) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/microsoft-advertising#schemainformation). These staging tables clean, test, and prepare your microsoft_ads data from [Fivetran's connector](https://fivetran.com/docs/applications/microsoft-advertising) for analysis by doing the following:
   - Names columns for consistency across all packages and for easier analysis
   - Adds freshness tests to source data
+    > dbt Core >= 1.9.6 is required to run freshness tests out of the box. See other options [here](https://github.com/fivetran/dbt_microsoft_ads_source/blob/main/CHANGELOG.md#breaking-change-for-dbt-core--196).
   - Adds column-level testing where applicable. For example, all primary keys are tested for uniqueness and non-null values.
 - Generates a comprehensive data dictionary of your Microsoft Ads data through the [dbt docs site](https://fivetran.github.io/dbt_microsoft_ads_source/).
 - These tables are designed to work simultaneously with our [Microsoft Ads transformation package](https://github.com/fivetran/dbt_microsoft_ads).
@@ -46,7 +47,7 @@ If you  are **not** using the [Microsoft Ads transformation package](https://git
 ```yaml
 packages:
   - package: fivetran/microsoft_ads_source
-    version: [">=0.12.0", "<0.13.0"]
+    version: [">=0.13.0", "<0.14.0"]
 ```
 ### Step 3: Define database and schema variables
 By default, this package runs using your destination and the `microsoft_ads` schema. If this is not where your Microsoft Ads data is (for example, if your microsoft_ads schema is named `microsoft_ads_fivetran`), add the following configuration to your root `dbt_project.yml` file:
